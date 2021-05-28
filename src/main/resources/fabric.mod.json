@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "mobsummoning",
+  "version": "${version}",
+  "name": "Mob Summoning",
+  "description": "Summon mobs to fight along side you",
+  "authors": [
+    "Chronosacaria"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/MobSummoning/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "chronosacaria.mobsummoning.client.MobSummoningClient"
+    ],
+    "main": [
+      "chronosacaria.mobsummoning.MobSummoning"
+    ]
+  },
+  "mixins": [
+    "MobSummoning.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "minecraft": "1.16.5"
+  }
+}
