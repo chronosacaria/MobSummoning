@@ -37,6 +37,7 @@ public class SummonedEntityRegistry {
 
     public static final EntityType<SummonedBlazeEntity> SUMMONED_BLAZE_ENTITY = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SummonedBlazeEntity::new).dimensions(EntityDimensions.fixed(1, 2)).build();
     public static final EntityType<SummonedSkeletonEntity> SUMMONED_SKELETON_ENTITY = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SummonedSkeletonEntity::new).dimensions(EntityDimensions.fixed(1, 2)).build();
+    public static final EntityType<SummonedZombieEntity> SUMMONED_ZOMBIE_ENTITY = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SummonedZombieEntity::new).dimensions(EntityDimensions.fixed(1, 2)).build();
 
 
 

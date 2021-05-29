@@ -38,61 +38,63 @@ public class SummoningStaffItem extends Item {
             if (itemUsageContextPlayer != null && itemUsageContextPlayer.experienceLevel >= 5 && !offhandStack.isEmpty()){
 
                 // Passive Mob Summons
-                //if (offhandStack.getItem() == Items.ARROW) {
-                //    SummoningHelper.summonBat(itemUsageContextPlayer, itemUsageContext.getBlockPos());
-                //}
-                /*else*/ if (offhandStack.getItem() == Items.STRING){
-                    SummoningHelper.summonCat(itemUsageContextPlayer, itemUsageContext.getBlockPos());
+                /*if (offhandStack.getItem() == Items.ARROW) {
+                   SummoningHelper.summonBat(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 5);
+                }
+                else*/ if (offhandStack.getItem() == Items.STRING){
+                    SummoningHelper.summonCat(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 5);
                 }
                 else if (offhandStack.getItem() == Items.CHICKEN){
-                    SummoningHelper.summonChicken(itemUsageContextPlayer, itemUsageContext.getBlockPos());
+                    SummoningHelper.summonChicken(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 5);
                 }
                 else if (offhandStack.getItem() == Items.BEEF){
-                    SummoningHelper.summonCow(itemUsageContextPlayer, itemUsageContext.getBlockPos());
+                    SummoningHelper.summonCow(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 5);
                 }
                 else if (offhandStack.getItem() == Items.SWEET_BERRIES){
-                    SummoningHelper.summonFox(itemUsageContextPlayer, itemUsageContext.getBlockPos());
+                    SummoningHelper.summonFox(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 5);
                 }
                 else if (offhandStack.getItem() == Items.PORKCHOP){
-                    SummoningHelper.summonPig(itemUsageContextPlayer, itemUsageContext.getBlockPos());
+                    SummoningHelper.summonPig(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 5);
                 }
                 else if (offhandStack.getItem() == Items.RABBIT_FOOT){
-                    SummoningHelper.summonRabbit(itemUsageContextPlayer, itemUsageContext.getBlockPos());
+                    SummoningHelper.summonRabbit(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 5);
                 }
                 else if (offhandStack.getItem() == Items.MUTTON) {
-                    SummoningHelper.summonSheep(itemUsageContextPlayer, itemUsageContext.getBlockPos());
+                    SummoningHelper.summonSheep(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 5);
                 }
 
                 // Neutral Mob Summons
                 else if (offhandStack.getItem() == Items.ENDER_EYE) {
-                    SummoningHelper.summonEnderman(itemUsageContextPlayer, itemUsageContext.getBlockPos());
+                    SummoningHelper.summonEnderman(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 10);
                 }
                 else if (offhandStack.getItem() == Items.IRON_BLOCK) {
-                    SummoningHelper.summonIronGolem(itemUsageContextPlayer, itemUsageContext.getBlockPos());
+                    SummoningHelper.summonIronGolem(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 10);
                 }
                 else if (offhandStack.getItem() == Items.LEAD) {
-                    SummoningHelper.summonLlama(itemUsageContextPlayer, itemUsageContext.getBlockPos());
+                    SummoningHelper.summonLlama(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 10);
                 }
                 else if (offhandStack.getItem() == Items.COBWEB) {
-                    SummoningHelper.summonSpider(itemUsageContextPlayer, itemUsageContext.getBlockPos());
+                    SummoningHelper.summonSpider(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 10);
                 }
                 else if (offhandStack.getItem() == Items.BONE) {
-                    SummoningHelper.summonWolf(itemUsageContextPlayer, itemUsageContext.getBlockPos());
+                    SummoningHelper.summonWolf(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 10);
                 }
 
                 // Hostile Mob Summons
                 else if (offhandStack.getItem() == Items.BLAZE_ROD) {
-                    SummoningHelper.summonBlaze(itemUsageContextPlayer, itemUsageContext.getBlockPos());
+                    SummoningHelper.summonBlaze(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 15);
                 }
                 else if (offhandStack.getItem() == Items.BOW) {
-                    SummoningHelper.summonSkeleton(itemUsageContextPlayer, itemUsageContext.getBlockPos());
+                    SummoningHelper.summonSkeleton(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 15);
+                }
+                else if (offhandStack.getItem() == Items.ROTTEN_FLESH) {
+                    SummoningHelper.summonZombie(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 15);
                 }
 
                 if (!itemUsageContextPlayer.isCreative()){
                     itemUsageContext.getStack().damage(1, itemUsageContextPlayer,
                             (entity) -> entity.sendToolBreakStatus(itemUsageContext.getHand()));
                     offhandStack.decrement(1);
-                    itemUsageContextPlayer.addExperienceLevels(-5);
 
                 }
                 //itemUsageContextPlayer.getItemCooldownManager().set(this, 600);
