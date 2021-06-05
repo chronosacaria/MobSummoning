@@ -29,7 +29,7 @@ public class SummonedEntityRenderRegistry {
 
         registerRenderMob(SummonedEntityRegistry.SUMMONED_BLAZE_ENTITY, SummonedBlazeRenderer.class);
         registerRenderMob(SummonedEntityRegistry.SUMMONED_SKELETON_ENTITY, SummonedSkeletonRenderer.class);
-        registerRenderMob(SummonedEntityRegistry.SUMMONED_ZOMBIE_ENTITY, SummonedSkeletonRenderer.class);
+        registerRenderMob(SummonedEntityRegistry.SUMMONED_ZOMBIE_ENTITY, SummonedZombieRenderer.class);
     }
 
     private static void registerRenderMob(EntityType<?> entity, Class<? extends MobEntityRenderer<?, ?>> renderer) {

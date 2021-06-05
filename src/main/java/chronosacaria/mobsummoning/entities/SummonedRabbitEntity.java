@@ -1,47 +1,34 @@
 package chronosacaria.mobsummoning.entities;
 
-import chronosacaria.mobsummoning.goals.ChickenFollowSummonerGoal;
 import chronosacaria.mobsummoning.goals.RabbitFollowSummonerGoal;
 import chronosacaria.mobsummoning.interfaces.ISummonable;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.ai.pathing.Path;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.data.DataTracker;
-import net.minecraft.entity.data.TrackedData;
-import net.minecraft.entity.data.TrackedDataHandlerRegistry;
-import net.minecraft.entity.passive.ChickenEntity;
-import net.minecraft.entity.passive.RabbitEntity;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Items;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-import java.util.Optional;
-import java.util.UUID;
+public class SummonedRabbitEntity extends SummonedEntity implements ISummonable {
 
-public class SummonedRabbitEntity extends RabbitEntity implements ISummonable {
+    private int jumpTicks;
+    private int jumpDuration;
 
-    protected static final TrackedData<Optional<UUID>> SUMMONER_UUID;
-
-    public SummonedRabbitEntity(EntityType type, World world){
-        super(EntityType.RABBIT, world);
-    }
-
-    public void initDataTracker(){
-        super.initDataTracker();
-        this.dataTracker.startTracking(SUMMONER_UUID, Optional.empty());
+    public SummonedRabbitEntity(EntityType<? extends HostileEntity> entityType, World world) {
+        super(entityType, world);
     }
 
     @Override
     protected void initGoals(){
 
         this.goalSelector.add(0, new SwimGoal(this));
-        this.goalSelector.add(1, new AnimalMateGoal(this, 1.0D));
-        this.goalSelector.add(4, new FollowParentGoal(this, 1.25D));
         this.goalSelector.add(5, new MeleeAttackGoal(this, 1.0D, true));
         this.goalSelector.add(6, new RabbitFollowSummonerGoal(this, this.getSummoner(), this.world, 1.0,
                 this.getNavigation(), 90.0F, 10.0F, true));
@@ -50,34 +37,41 @@ public class SummonedRabbitEntity extends RabbitEntity implements ISummonable {
         this.targetSelector.add(1, new RevengeGoal(this));
     }
 
-    private void setSummonerUuid (UUID uuid){
-        this.dataTracker.set(SUMMONER_UUID, Optional.ofNullable(uuid));
-    }
+    protected float getJumpVelocity() {
+        if (!this.horizontalCollision && (!this.moveControl.isMoving() || !(this.moveControl.getTargetY() > this.getY() + 0.5D))) {
+            Path path = this.navigation.getCurrentPath();
+            if (path != null && !path.isFinished()) {
+                Vec3d vec3d = path.getNodePosition(this);
+                if (vec3d.y > this.getY() + 0.5D) {
+                    return 0.5F;
+                }
+            }
 
-    public Optional<UUID> getSummonerUuid(){
-        return this.dataTracker.get(SUMMONER_UUID);
-    }
-
-    public void setSummoner(Entity player) {
-        this.setSummonerUuid(player.getUuid());
-    }
-
-    public void writeCustomDataToTag(CompoundTag tag){
-        super.writeCustomDataToTag(tag);
-        tag.putUuid("SummonerUUID",getSummonerUuid().get());
-    }
-
-    public void readCustomDataFromTag(CompoundTag tag){
-        super.readCustomDataFromTag(tag);
-        UUID id;
-        if (tag.contains("SummonerUUID")){
-            id = tag.getUuid("SummonerUUID");
+            return this.moveControl.getSpeed() <= 0.6D ? 0.2F : 0.3F;
         } else {
-            id = tag.getUuid("SummonerUUID");
+            return 0.5F;
         }
-        if (id != null){
-            this.setSummonerUuid(tag.getUuid("SummonerUUID"));
+    }
+
+    protected void jump() {
+        super.jump();
+        double d = this.moveControl.getSpeed();
+        if (d > 0.0D) {
+            double e = squaredHorizontalLength(this.getVelocity());
+            if (e < 0.01D) {
+                this.updateVelocity(0.1F, new Vec3d(0.0D, 0.0D, 1.0D));
+            }
         }
+
+        if (!this.world.isClient) {
+            this.world.sendEntityStatus(this, (byte)1);
+        }
+
+    }
+
+    @Environment(EnvType.CLIENT)
+    public float getJumpProgress(float delta) {
+        return this.jumpDuration == 0 ? 0.0F : ((float)this.jumpTicks + delta) / (float)this.jumpDuration;
     }
 
     @Override
@@ -115,19 +109,4 @@ public class SummonedRabbitEntity extends RabbitEntity implements ISummonable {
         }
         super.tickMovement();
     }
-
-    public LivingEntity getSummoner(){
-        try {
-            Optional<UUID> uUID = this.getSummonerUuid();
-            return uUID.map(value -> this.world.getPlayerByUuid(value)).orElse(null);
-        } catch (IllegalArgumentException var2){
-            return null;
-        }
-    }
-
-    static {
-        SUMMONER_UUID = DataTracker.registerData(SummonedRabbitEntity.class,
-                TrackedDataHandlerRegistry.OPTIONAL_UUID);
-    }
-
 }

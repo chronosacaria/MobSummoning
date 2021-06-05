@@ -38,10 +38,10 @@ public class SummoningStaffItem extends Item {
             if (itemUsageContextPlayer != null && itemUsageContextPlayer.experienceLevel >= 5 && !offhandStack.isEmpty()){
 
                 // Passive Mob Summons
-                /*if (offhandStack.getItem() == Items.ARROW) {
+                if (offhandStack.getItem() == Items.ARROW) {
                    SummoningHelper.summonBat(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 5);
                 }
-                else*/ if (offhandStack.getItem() == Items.STRING){
+                else if (offhandStack.getItem() == Items.STRING){
                     SummoningHelper.summonCat(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 5);
                 }
                 else if (offhandStack.getItem() == Items.CHICKEN){
@@ -64,7 +64,7 @@ public class SummoningStaffItem extends Item {
                 }
 
                 // Neutral Mob Summons
-                else if (offhandStack.getItem() == Items.ENDER_EYE) {
+                else if (offhandStack.getItem() == Items.ENDER_PEARL) {
                     SummoningHelper.summonEnderman(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 10);
                 }
                 else if (offhandStack.getItem() == Items.IRON_BLOCK) {

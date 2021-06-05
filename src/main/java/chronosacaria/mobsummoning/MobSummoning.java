@@ -2,6 +2,7 @@ package chronosacaria.mobsummoning;
 
 import chronosacaria.mobsummoning.commands.SummonMobCommand;
 import chronosacaria.mobsummoning.init.ItemsInit;
+import chronosacaria.mobsummoning.init.SummonedEntityRegistry;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.minecraft.util.Identifier;
@@ -17,6 +18,7 @@ public class MobSummoning implements ModInitializer {
     @Override
     public void onInitialize() {
         ItemsInit.init();
+        SummonedEntityRegistry.register();
         CommandRegistrationCallback.EVENT.register(new SummonMobCommand());
     }
 }

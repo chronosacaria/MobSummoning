@@ -2,43 +2,22 @@ package chronosacaria.mobsummoning.entities;
 
 import chronosacaria.mobsummoning.goals.BlazeFollowSummonerGoal;
 import chronosacaria.mobsummoning.goals.ShootFireballGoal;
-import chronosacaria.mobsummoning.goals.SpiderFollowSummonerGoal;
 import chronosacaria.mobsummoning.interfaces.ISummonable;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.data.DataTracker;
-import net.minecraft.entity.data.TrackedData;
-import net.minecraft.entity.data.TrackedDataHandlerRegistry;
-import net.minecraft.entity.mob.BlazeEntity;
 import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.entity.mob.SpiderEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.SmallFireballEntity;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-import java.util.EnumSet;
-import java.util.Optional;
-import java.util.UUID;
-
-public class SummonedBlazeEntity extends BlazeEntity implements ISummonable {
-
-    protected static final TrackedData<Optional<UUID>> SUMMONER_UUID;
+public class SummonedBlazeEntity extends SummonedEntity implements ISummonable {
 
     public SummonedBlazeEntity(EntityType type, World world){
         super(EntityType.BLAZE, world);
     }
 
-    public void initDataTracker(){
-        super.initDataTracker();
-        this.dataTracker.startTracking(SUMMONER_UUID, Optional.empty());
-    }
 
     @Override
     protected void initGoals(){
@@ -51,36 +30,6 @@ public class SummonedBlazeEntity extends BlazeEntity implements ISummonable {
         this.goalSelector.add(7, new LookAtEntityGoal(this, MobEntity.class, 6.0F));
         this.goalSelector.add(8, new LookAroundGoal(this));
         this.targetSelector.add(2, new RevengeGoal(this));
-    }
-
-    private void setSummonerUuid (UUID uuid){
-        this.dataTracker.set(SUMMONER_UUID, Optional.ofNullable(uuid));
-    }
-
-    public Optional<UUID> getSummonerUuid(){
-        return this.dataTracker.get(SUMMONER_UUID);
-    }
-
-    public void setSummoner(Entity player) {
-        this.setSummonerUuid(player.getUuid());
-    }
-
-    public void writeCustomDataToTag(CompoundTag tag){
-        super.writeCustomDataToTag(tag);
-        tag.putUuid("SummonerUUID",getSummonerUuid().get());
-    }
-
-    public void readCustomDataFromTag(CompoundTag tag){
-        super.readCustomDataFromTag(tag);
-        UUID id;
-        if (tag.contains("SummonerUUID")){
-            id = tag.getUuid("SummonerUUID");
-        } else {
-            id = tag.getUuid("SummonerUUID");
-        }
-        if (id != null){
-            this.setSummonerUuid(tag.getUuid("SummonerUUID"));
-        }
     }
 
     @Override
@@ -122,19 +71,5 @@ public class SummonedBlazeEntity extends BlazeEntity implements ISummonable {
     @Override
     protected void mobTick(){
 
-    }
-
-    public LivingEntity getSummoner() {
-        try {
-            Optional<UUID> uUID = this.getSummonerUuid();
-            return uUID.map(value -> this.world.getPlayerByUuid(value)).orElse(null);
-        } catch (IllegalArgumentException var2) {
-            return null;
-        }
-    }
-
-    static {
-        SUMMONER_UUID = DataTracker.registerData(SummonedBlazeEntity.class,
-                TrackedDataHandlerRegistry.OPTIONAL_UUID);
     }
 }

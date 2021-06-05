@@ -9,7 +9,7 @@ import net.fabricmc.api.Environment;
 public class MobSummoningClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-        SummonedEntityRegistry.register();
+
         SummonedEntityRenderRegistry.register();
     }
 }

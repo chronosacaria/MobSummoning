@@ -1,38 +1,21 @@
 package chronosacaria.mobsummoning.entities;
 
 import chronosacaria.mobsummoning.goals.CatFollowSummonerGoal;
-import chronosacaria.mobsummoning.goals.IronGolemFollowSummonerGoal;
 import chronosacaria.mobsummoning.interfaces.ISummonable;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.goal.EatGrassGoal;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.data.DataTracker;
-import net.minecraft.entity.data.TrackedData;
-import net.minecraft.entity.data.TrackedDataHandlerRegistry;
-import net.minecraft.entity.passive.CatEntity;
-import net.minecraft.entity.passive.IronGolemEntity;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 
-import java.util.Optional;
-import java.util.UUID;
+public class SummonedCatEntity extends SummonedEntity implements ISummonable {
 
-public class SummonedCatEntity extends CatEntity implements ISummonable {
-
-    protected static final TrackedData<Optional<UUID>> SUMMONER_UUID;
-
-    public SummonedCatEntity(EntityType type, World world){
-        super(EntityType.CAT, world);
-    }
-
-    public void initDataTracker(){
-        super.initDataTracker();
-        this.dataTracker.startTracking(SUMMONER_UUID, Optional.empty());
+    public SummonedCatEntity(EntityType<? extends HostileEntity> entityType, World world) {
+        super(entityType, world);
     }
 
     @Override
@@ -44,35 +27,10 @@ public class SummonedCatEntity extends CatEntity implements ISummonable {
                 this.getNavigation(), 90.0F, 10.0F, true));
     }
 
-    private void setSummonerUuid (UUID uuid){
-        this.dataTracker.set(SUMMONER_UUID, Optional.ofNullable(uuid));
-    }
-
-    public Optional<UUID> getSummonerUuid(){
-        return this.dataTracker.get(SUMMONER_UUID);
-    }
-
-    public void setSummoner(Entity player) {
-        this.setSummonerUuid(player.getUuid());
-    }
-
-    public void writeCustomDataToTag(CompoundTag tag){
-        super.writeCustomDataToTag(tag);
-        tag.putUuid("SummonerUUID",getSummonerUuid().get());
-    }
-
-    public void readCustomDataFromTag(CompoundTag tag){
-        super.readCustomDataFromTag(tag);
-        UUID id;
-        if (tag.contains("SummonerUUID")){
-            id = tag.getUuid("SummonerUUID");
-        } else {
-            id = tag.getUuid("SummonerUUID");
-        }
-        if (id != null){
-            this.setSummonerUuid(tag.getUuid("SummonerUUID"));
-        }
-    }
+    //public static DefaultAttributeContainer.Builder createSummonedCatAttributes() {
+    //    return MobEntity.createMobAttributes()
+    //            .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 48.0D);
+    //}
 
     @Override
     public boolean tryAttack(Entity target) {
@@ -108,20 +66,6 @@ public class SummonedCatEntity extends CatEntity implements ISummonable {
             }
         }
         super.tickMovement();
-    }
-
-    public LivingEntity getSummoner(){
-        try {
-            Optional<UUID> uUID = this.getSummonerUuid();
-            return uUID.map(value -> this.world.getPlayerByUuid(value)).orElse(null);
-        } catch (IllegalArgumentException var2){
-            return null;
-        }
-    }
-
-    static {
-        SUMMONER_UUID = DataTracker.registerData(SummonedCatEntity.class,
-                TrackedDataHandlerRegistry.OPTIONAL_UUID);
     }
 
 }

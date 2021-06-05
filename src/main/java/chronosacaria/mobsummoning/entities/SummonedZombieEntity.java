@@ -11,27 +11,22 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
+import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.SkeletonEntity;
 import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 import java.util.UUID;
 
-public class SummonedZombieEntity extends ZombieEntity implements ISummonable {
+public class SummonedZombieEntity extends SummonedEntity implements ISummonable {
 
-    protected static final TrackedData<Optional<UUID>> SUMMONER_UUID;
-
-    public SummonedZombieEntity(EntityType type, World world){
-        super(EntityType.ZOMBIE, world);
-    }
-
-    public void initDataTracker(){
-        super.initDataTracker();
-        this.dataTracker.startTracking(SUMMONER_UUID, Optional.empty());
+    public SummonedZombieEntity(EntityType<? extends HostileEntity> entityType, World world) {
+        super(entityType, world);
     }
 
     @Override
@@ -45,36 +40,6 @@ public class SummonedZombieEntity extends ZombieEntity implements ISummonable {
                 true));
         this.goalSelector.add(7, new LookAtEntityGoal(this, MobEntity.class, 6.0F));
         this.goalSelector.add(8, new LookAroundGoal(this));
-    }
-
-    private void setSummonerUuid (UUID uuid){
-        this.dataTracker.set(SUMMONER_UUID, Optional.ofNullable(uuid));
-    }
-
-    public Optional<UUID> getSummonerUuid(){
-        return this.dataTracker.get(SUMMONER_UUID);
-    }
-
-    public void setSummoner(Entity player) {
-        this.setSummonerUuid(player.getUuid());
-    }
-
-    public void writeCustomDataToTag(CompoundTag tag){
-        super.writeCustomDataToTag(tag);
-        tag.putUuid("SummonerUUID",getSummonerUuid().get());
-    }
-
-    public void readCustomDataFromTag(CompoundTag tag){
-        super.readCustomDataFromTag(tag);
-        UUID id;
-        if (tag.contains("SummonerUUID")){
-            id = tag.getUuid("SummonerUUID");
-        } else {
-            id = tag.getUuid("SummonerUUID");
-        }
-        if (id != null){
-            this.setSummonerUuid(tag.getUuid("SummonerUUID"));
-        }
     }
 
     @Override
@@ -118,17 +83,4 @@ public class SummonedZombieEntity extends ZombieEntity implements ISummonable {
 
     }
 
-    public LivingEntity getSummoner() {
-        try {
-            Optional<UUID> uUID = this.getSummonerUuid();
-            return uUID.map(value -> this.world.getPlayerByUuid(value)).orElse(null);
-        } catch (IllegalArgumentException var2) {
-            return null;
-        }
-    }
-
-    static {
-        SUMMONER_UUID = DataTracker.registerData(SummonedZombieEntity.class,
-                TrackedDataHandlerRegistry.OPTIONAL_UUID);
-    }
 }
