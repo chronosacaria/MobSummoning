@@ -1,6 +1,6 @@
 package chronosacaria.mobsummoning.entities;
 
-import chronosacaria.mobsummoning.goals.WolfFollowSummonerGoal;
+import chronosacaria.mobsummoning.goals.SummonedEntityFollowSummonerGoal;
 import chronosacaria.mobsummoning.interfaces.ISummonable;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -25,7 +25,7 @@ public class SummonedWolfEntity extends SummonedEntity implements ISummonable {
 
         this.goalSelector.add(1, new MeleeAttackGoal(this, 1.0D, true));
         this.targetSelector.add(2, new RevengeGoal(this));
-        this.goalSelector.add(6, new WolfFollowSummonerGoal(this, this.getSummoner(), this.world, 1.0,
+        this.goalSelector.add(6, new SummonedEntityFollowSummonerGoal(this, this.getSummoner(), this.world, 0.75,
                 this.getNavigation(), 90.0F, 10.0F, true));
     }
 

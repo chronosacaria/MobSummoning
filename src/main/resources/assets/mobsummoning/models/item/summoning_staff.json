@@ -1,0 +1,48 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "mobsummoning:item/summoning_staff"
+	},
+	"gui_light": "front",
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [-39, -90, 0],
+			"translation": [0, 0, 2.5],
+			"scale": [2, 2, 1]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [-39, 90, 0],
+			"translation": [0, 0, 2.5],
+			"scale": [2, 2, 1]
+		},
+		"firstperson_righthand": {
+			"rotation": [-39, -90, 0],
+			"translation": [0, 0, 2.5],
+			"scale": [2, 2, 1]
+		},
+		"firstperson_lefthand": {
+			"rotation": [-39, 90, 0],
+			"translation": [0, 0, 2.5],
+			"scale": [2, 2, 1]
+		},
+		"ground": {
+			"translation": [0, 4.25, 0],
+			"scale": [2, 2, 1]
+		},
+		"gui": {
+			"translation": [0, -0.75, 0],
+			"scale": [1.5, 1.5, 1]
+		},
+		"head": {
+			"rotation": [83, -90, -1],
+			"translation": [0, -27.75, 6.5],
+			"scale": [2, 2, 1]
+		},
+		"fixed": {
+			"rotation": [0, -180, 0],
+			"translation": [0, -1, -0.25],
+			"scale": [2, 2, 1]
+		}
+	}
+}

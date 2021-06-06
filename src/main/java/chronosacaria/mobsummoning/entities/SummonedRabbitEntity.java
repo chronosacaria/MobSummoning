@@ -1,6 +1,6 @@
 package chronosacaria.mobsummoning.entities;
 
-import chronosacaria.mobsummoning.goals.RabbitFollowSummonerGoal;
+import chronosacaria.mobsummoning.goals.SummonedEntityFollowSummonerGoal;
 import chronosacaria.mobsummoning.interfaces.ISummonable;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -30,7 +30,7 @@ public class SummonedRabbitEntity extends SummonedEntity implements ISummonable 
 
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(5, new MeleeAttackGoal(this, 1.0D, true));
-        this.goalSelector.add(6, new RabbitFollowSummonerGoal(this, this.getSummoner(), this.world, 1.0,
+        this.goalSelector.add(6, new SummonedEntityFollowSummonerGoal(this, this.getSummoner(), this.world, 0.75,
                 this.getNavigation(), 90.0F, 10.0F, true));
         this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
         this.goalSelector.add(8, new LookAroundGoal(this));

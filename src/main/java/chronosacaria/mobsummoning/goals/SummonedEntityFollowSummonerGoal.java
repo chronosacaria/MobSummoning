@@ -1,7 +1,7 @@
 package chronosacaria.mobsummoning.goals;
 
-import chronosacaria.mobsummoning.entities.SummonedIronGolemEntity;
-import chronosacaria.mobsummoning.entities.SummonedSheepEntity;
+import chronosacaria.mobsummoning.entities.SummonedBatEntity;
+import chronosacaria.mobsummoning.entities.SummonedEntity;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.Goal;
@@ -11,9 +11,9 @@ import net.minecraft.entity.ai.pathing.PathNodeType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.WorldView;
 
-public class IronGolemFollowSummonerGoal extends Goal {
+public class SummonedEntityFollowSummonerGoal extends Goal {
 
-    private final SummonedIronGolemEntity summonedEntity;
+    private final SummonedEntity summonedEntity;
 
     private LivingEntity summoner;
     private final WorldView worldView;
@@ -24,8 +24,8 @@ public class IronGolemFollowSummonerGoal extends Goal {
     private final float minDistance;
     private final boolean leavesAllowed;
 
-    public IronGolemFollowSummonerGoal(SummonedIronGolemEntity summonedEntity, LivingEntity summoner, WorldView worldView,
-                                       double speed, EntityNavigation navigation, float maxDistance, float minDistance, boolean leavesAllowed){
+    public SummonedEntityFollowSummonerGoal(SummonedEntity summonedEntity, LivingEntity summoner, WorldView worldView,
+                                            double speed, EntityNavigation navigation, float maxDistance, float minDistance, boolean leavesAllowed){
         this.summonedEntity = summonedEntity;
         this.summoner = summoner;
         this.worldView = worldView;

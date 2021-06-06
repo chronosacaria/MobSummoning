@@ -1,27 +1,18 @@
 package chronosacaria.mobsummoning.entities;
 
-import chronosacaria.mobsummoning.goals.PigFollowSummonerGoal;
+import chronosacaria.mobsummoning.goals.SummonedEntityFollowSummonerGoal;
 import chronosacaria.mobsummoning.interfaces.ISummonable;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.data.DataTracker;
-import net.minecraft.entity.data.TrackedData;
-import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.HostileEntity;
-import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Items;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.Optional;
-import java.util.UUID;
 
 public class SummonedPigEntity extends SummonedEntity implements ISummonable {
 
@@ -35,7 +26,7 @@ public class SummonedPigEntity extends SummonedEntity implements ISummonable {
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(3, new TemptGoal(this, 1.1D, Ingredient.ofItems(Items.WHEAT), false));
         this.goalSelector.add(5, new MeleeAttackGoal(this, 1.0D, true));
-        this.goalSelector.add(6, new PigFollowSummonerGoal(this, this.getSummoner(), this.world, 1.0,
+        this.goalSelector.add(6, new SummonedEntityFollowSummonerGoal(this, this.getSummoner(), this.world, 0.75,
                 this.getNavigation(), 90.0F, 10.0F, true));
         this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
         this.goalSelector.add(8, new LookAroundGoal(this));

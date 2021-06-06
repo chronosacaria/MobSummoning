@@ -1,6 +1,6 @@
 package chronosacaria.mobsummoning.entities;
 
-import chronosacaria.mobsummoning.goals.SkeletonFollowSummonerGoal;
+import chronosacaria.mobsummoning.goals.SummonedEntityFollowSummonerGoal;
 import chronosacaria.mobsummoning.interfaces.ISummonable;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -30,9 +30,8 @@ public class SummonedSkeletonEntity extends SummonedEntity implements ISummonabl
         this.goalSelector.add(0, new SwimGoal(this));
         //this.goalSelector.add(1, new ProjectileAttackGoal(this, 1.25D, 40, 20.0F));
         this.goalSelector.add(5, new MeleeAttackGoal(this, 1.0D, true));
-        this.goalSelector.add(6, new SkeletonFollowSummonerGoal(this, this.getSummoner(), this.world, 1.0,
-                this.getNavigation(), 90.0F, 10.0F,
-                true));
+        this.goalSelector.add(6, new SummonedEntityFollowSummonerGoal(this, this.getSummoner(), this.world, 0.75,
+                this.getNavigation(), 90.0F, 10.0F, true));
         this.goalSelector.add(7, new LookAtEntityGoal(this, MobEntity.class, 6.0F));
         this.goalSelector.add(8, new LookAroundGoal(this));
         this.targetSelector.add(2, new RevengeGoal(this));

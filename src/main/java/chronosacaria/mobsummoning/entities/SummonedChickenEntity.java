@@ -1,6 +1,6 @@
 package chronosacaria.mobsummoning.entities;
 
-import chronosacaria.mobsummoning.goals.ChickenFollowSummonerGoal;
+import chronosacaria.mobsummoning.goals.SummonedEntityFollowSummonerGoal;
 import chronosacaria.mobsummoning.interfaces.ISummonable;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -34,7 +34,7 @@ public class SummonedChickenEntity extends SummonedEntity implements ISummonable
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(3, new TemptGoal(this, 1.1D, Ingredient.ofItems(Items.WHEAT), false));
         this.goalSelector.add(5, new MeleeAttackGoal(this, 1.0D, true));
-        this.goalSelector.add(6, new ChickenFollowSummonerGoal(this, this.getSummoner(), this.world, 1.0,
+        this.goalSelector.add(6, new SummonedEntityFollowSummonerGoal(this, this.getSummoner(), this.world, 0.75,
                 this.getNavigation(), 90.0F, 10.0F, true));
         this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
         this.goalSelector.add(8, new LookAroundGoal(this));

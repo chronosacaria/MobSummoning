@@ -9,7 +9,7 @@ import net.minecraft.util.Identifier;
 public class SummonedZombieRenderer extends MobEntityRenderer<SummonedZombieEntity, SummonedZombieModel<SummonedZombieEntity>> {
 
     public SummonedZombieRenderer(EntityRenderDispatcher renderDispatcher){
-        super(renderDispatcher, new SummonedZombieModel<>(1, false), 1);
+        super(renderDispatcher, new SummonedZombieModel<>(0.75f, false), 1);
     }
 
     @Override

@@ -9,7 +9,7 @@ import net.minecraft.util.Identifier;
 public class SummonedLlamaRenderer extends MobEntityRenderer<SummonedLlamaEntity, SummonedLlamaModel<SummonedLlamaEntity>> {
 
     public SummonedLlamaRenderer(EntityRenderDispatcher renderDispatcher){
-        super(renderDispatcher, new SummonedLlamaModel<>(1), 1);
+        super(renderDispatcher, new SummonedLlamaModel<>(0.75f), 1);
     }
 
     @Override

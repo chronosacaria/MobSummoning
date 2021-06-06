@@ -1,20 +1,15 @@
 package chronosacaria.mobsummoning.entities;
 
-import chronosacaria.mobsummoning.goals.LlamaFollowSummonerGoal;
+import chronosacaria.mobsummoning.goals.SummonedEntityFollowSummonerGoal;
 import chronosacaria.mobsummoning.interfaces.ISummonable;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.RangedAttackMob;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.entity.ai.goal.ProjectileAttackGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.HostileEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.LlamaSpitEntity;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class SummonedLlamaEntity extends SummonedEntity implements ISummonable {
@@ -31,7 +26,7 @@ public class SummonedLlamaEntity extends SummonedEntity implements ISummonable {
         //this.goalSelector.add(1, new ProjectileAttackGoal(this, 1.25D, 40, 20.0F));
         this.goalSelector.add(2, new MeleeAttackGoal(this, 1.0D, true));
         this.targetSelector.add(3, new RevengeGoal(this));
-        this.goalSelector.add(6, new LlamaFollowSummonerGoal(this, this.getSummoner(), this.world, 1.0,
+        this.goalSelector.add(6, new SummonedEntityFollowSummonerGoal(this, this.getSummoner(), this.world, 0.75,
                 this.getNavigation(), 90.0F, 10.0F, true));
     }
 

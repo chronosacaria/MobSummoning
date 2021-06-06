@@ -1,27 +1,16 @@
 package chronosacaria.mobsummoning.entities;
 
-import chronosacaria.mobsummoning.goals.SkeletonFollowSummonerGoal;
-import chronosacaria.mobsummoning.goals.ZombieFollowSummonerGoal;
+import chronosacaria.mobsummoning.goals.SummonedEntityFollowSummonerGoal;
 import chronosacaria.mobsummoning.interfaces.ISummonable;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.data.DataTracker;
-import net.minecraft.entity.data.TrackedData;
-import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.entity.mob.SkeletonEntity;
-import net.minecraft.entity.mob.ZombieEntity;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.Optional;
-import java.util.UUID;
 
 public class SummonedZombieEntity extends SummonedEntity implements ISummonable {
 
@@ -35,9 +24,8 @@ public class SummonedZombieEntity extends SummonedEntity implements ISummonable 
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(1, new MeleeAttackGoal(this, 1.0D, true));
         this.targetSelector.add(2, new RevengeGoal(this));
-        this.goalSelector.add(6, new ZombieFollowSummonerGoal(this, this.getSummoner(), this.world, 1.0,
-                this.getNavigation(), 90.0F, 10.0F,
-                true));
+        this.goalSelector.add(6, new SummonedEntityFollowSummonerGoal(this, this.getSummoner(), this.world, 0.75,
+                this.getNavigation(), 90.0F, 10.0F, true));
         this.goalSelector.add(7, new LookAtEntityGoal(this, MobEntity.class, 6.0F));
         this.goalSelector.add(8, new LookAroundGoal(this));
     }
