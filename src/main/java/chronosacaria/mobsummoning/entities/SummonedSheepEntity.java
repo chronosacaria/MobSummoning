@@ -4,26 +4,30 @@ import chronosacaria.mobsummoning.goals.SummonedEntityFollowSummonerGoal;
 import chronosacaria.mobsummoning.interfaces.ISummonable;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.data.DataTracker;
+import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.HostileEntity;
-import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.passive.SheepEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
-import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.DyeColor;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class SummonedSheepEntity extends SummonedEntity implements ISummonable {
 
+public class SummonedSheepEntity extends SummonedEntity implements ISummonable {
+    private static final TrackedData<Byte> COLOR;
     private EatGrassGoal eatGrassGoal;
     private int eatGrassTimer;
+
+
 
     public SummonedSheepEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
@@ -42,6 +46,12 @@ public class SummonedSheepEntity extends SummonedEntity implements ISummonable {
         this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
         this.goalSelector.add(8, new LookAroundGoal(this));
         this.targetSelector.add(1, new RevengeGoal(this));
+    }
+
+    @Override
+    public void initDataTracker() {
+        super.initDataTracker();
+        this.dataTracker.startTracking(COLOR, (byte)0);
     }
 
     public static DefaultAttributeContainer.Builder createSheepAttributes() {
@@ -74,19 +84,6 @@ public class SummonedSheepEntity extends SummonedEntity implements ISummonable {
     }
 
     @Override
-    public boolean tryAttack(Entity target) {
-        boolean bl = target.damage(DamageSource.mob(this),
-                8.0F);
-        if (bl) {
-            this.dealDamage(this, target);
-            this.playSound(SoundEvents.ENTITY_SHEEP_AMBIENT, 1f,
-                    (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
-        }
-
-        return bl;
-    }
-
-    @Override
     public void setAttacker(LivingEntity attacker){
         if (attacker == getSummoner()) {
 
@@ -112,6 +109,19 @@ public class SummonedSheepEntity extends SummonedEntity implements ISummonable {
     @Override
     protected void mobTick(){
 
+    }
+
+    public DyeColor getColor() {
+        return DyeColor.byId((Byte)this.dataTracker.get(COLOR) & 15);
+    }
+
+    public void setColor(DyeColor color) {
+        byte b = (Byte)this.dataTracker.get(COLOR);
+        this.dataTracker.set(COLOR, (byte)(b & 240 | color.getId() & 15));
+    }
+
+    static {
+        COLOR = DataTracker.registerData(SheepEntity.class, TrackedDataHandlerRegistry.BYTE);
     }
 
 }

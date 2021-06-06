@@ -39,10 +39,10 @@ public class SummoningStaffItem extends Item {
             if (itemUsageContextPlayer != null && itemUsageContextPlayer.experienceLevel >= 5 && !offhandStack.isEmpty() && offhandStack.getItem() != ItemsInit.SUMMONING_STAFF){
 
                 // Passive Mob Summons
-                if (offhandStack.getItem() == Items.ARROW) {
+                /*if (offhandStack.getItem() == Items.ARROW) {
                    SummoningHelper.summonBat(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 5);
                 }
-                else if (offhandStack.getItem() == Items.STRING){
+                else*/if (offhandStack.getItem() == Items.STRING){
                     SummoningHelper.summonCat(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 5);
                 }
                 else if (offhandStack.getItem() == Items.CHICKEN){

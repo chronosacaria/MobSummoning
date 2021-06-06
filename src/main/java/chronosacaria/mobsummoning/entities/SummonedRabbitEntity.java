@@ -4,18 +4,14 @@ import chronosacaria.mobsummoning.goals.SummonedEntityFollowSummonerGoal;
 import chronosacaria.mobsummoning.interfaces.ISummonable;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.ai.pathing.Path;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.HostileEntity;
-import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
@@ -83,19 +79,6 @@ public class SummonedRabbitEntity extends SummonedEntity implements ISummonable 
     @Environment(EnvType.CLIENT)
     public float getJumpProgress(float delta) {
         return this.jumpDuration == 0 ? 0.0F : ((float)this.jumpTicks + delta) / (float)this.jumpDuration;
-    }
-
-    @Override
-    public boolean tryAttack(Entity target) {
-        boolean bl = target.damage(DamageSource.mob(this),
-                8.0F);
-        if (bl) {
-            this.dealDamage(this, target);
-            this.playSound(SoundEvents.ENTITY_RABBIT_ATTACK, 1f,
-                    (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
-        }
-
-        return bl;
     }
 
     @Override

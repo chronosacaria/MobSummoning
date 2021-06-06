@@ -2,16 +2,13 @@ package chronosacaria.mobsummoning.entities;
 
 import chronosacaria.mobsummoning.goals.SummonedEntityFollowSummonerGoal;
 import chronosacaria.mobsummoning.interfaces.ISummonable;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.HostileEntity;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 
 public class SummonedCatEntity extends SummonedEntity implements ISummonable {
@@ -35,19 +32,6 @@ public class SummonedCatEntity extends SummonedEntity implements ISummonable {
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.30000001192092896D)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3.0D)
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 64.0D);
-    }
-
-    @Override
-    public boolean tryAttack(Entity target) {
-        boolean bl = target.damage(DamageSource.mob(this),
-                8.0F);
-        if (bl) {
-            this.dealDamage(this, target);
-            this.playSound(SoundEvents.ENTITY_CAT_AMBIENT, 1f,
-                    (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
-        }
-
-        return bl;
     }
 
     @Override
