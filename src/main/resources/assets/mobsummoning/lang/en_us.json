@@ -1,0 +1,20 @@
+{
+  "item.mobsummoning.summoning_staff":        "Summoning Staff",
+
+  "entity.mobsummoning.summoned_bat":         "Summoned Bat",
+  "entity.mobsummoning.summoned_blaze":       "Summoned Blaze",
+  "entity.mobsummoning.summoned_cat":         "Summoned Cat",
+  "entity.mobsummoning.summoned_chicken":     "Summoned Chicken",
+  "entity.mobsummoning.summoned_cow":         "Summoned Cow",
+  "entity.mobsummoning.summoned_enderman":    "Summoned Enderman",
+  "entity.mobsummoning.summoned_fox":         "Summoned Fox",
+  "entity.mobsummoning.summoned_iron_golem":  "Summoned Iron Golem",
+  "entity.mobsummoning.summoned_llama":       "Summoned Llama",
+  "entity.mobsummoning.summoned_pig":         "Summoned Pig",
+  "entity.mobsummoning.summoned_rabbit":      "Summoned Rabbit",
+  "entity.mobsummoning.summoned_sheep":       "Summoned Sheep",
+  "entity.mobsummoning.summoned_skeleton":    "Summoned Skeleton",
+  "entity.mobsummoning.summoned_spider":      "Summoned Spider",
+  "entity.mobsummoning.summoned_wolf":        "Summoned Wolf",
+  "entity.mobsummoning.summoned_zombie":      "Summoned Zombie"
+}

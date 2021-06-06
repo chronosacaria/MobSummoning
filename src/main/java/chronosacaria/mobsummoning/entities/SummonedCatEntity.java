@@ -7,6 +7,8 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.sound.SoundEvents;
@@ -27,10 +29,13 @@ public class SummonedCatEntity extends SummonedEntity implements ISummonable {
                 this.getNavigation(), 90.0F, 10.0F, true));
     }
 
-    //public static DefaultAttributeContainer.Builder createSummonedCatAttributes() {
-    //    return MobEntity.createMobAttributes()
-    //            .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 48.0D);
-    //}
+    public static DefaultAttributeContainer.Builder createCatAttributes() {
+        return HostileEntity.createHostileAttributes()
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 10.0D)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.30000001192092896D)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3.0D)
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 48.0D);
+    }
 
     @Override
     public boolean tryAttack(Entity target) {
