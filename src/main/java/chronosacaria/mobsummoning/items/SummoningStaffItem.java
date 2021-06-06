@@ -2,6 +2,7 @@ package chronosacaria.mobsummoning.items;
 
 import chronosacaria.mobsummoning.MobSummoning;
 import chronosacaria.mobsummoning.helpers.SummoningHelper;
+import chronosacaria.mobsummoning.init.ItemsInit;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -35,7 +36,7 @@ public class SummoningStaffItem extends Item {
         } else {
             PlayerEntity itemUsageContextPlayer = itemUsageContext.getPlayer();
 
-            if (itemUsageContextPlayer != null && itemUsageContextPlayer.experienceLevel >= 5 && !offhandStack.isEmpty()){
+            if (itemUsageContextPlayer != null && itemUsageContextPlayer.experienceLevel >= 5 && !offhandStack.isEmpty() && offhandStack.getItem() != ItemsInit.SUMMONING_STAFF){
 
                 // Passive Mob Summons
                 if (offhandStack.getItem() == Items.ARROW) {
@@ -64,12 +65,6 @@ public class SummoningStaffItem extends Item {
                 }
 
                 // Neutral Mob Summons
-                else if (offhandStack.getItem() == Items.ENDER_PEARL) {
-                    SummoningHelper.summonEnderman(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 10);
-                }
-                else if (offhandStack.getItem() == Items.IRON_BLOCK) {
-                    SummoningHelper.summonIronGolem(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 10);
-                }
                 else if (offhandStack.getItem() == Items.LEAD) {
                     SummoningHelper.summonLlama(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 10);
                 }
@@ -91,13 +86,21 @@ public class SummoningStaffItem extends Item {
                     SummoningHelper.summonZombie(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 15);
                 }
 
+                // Uniquely Powerful Mob Summons
+                else if (offhandStack.getItem() == Items.ENDER_PEARL) {
+                    SummoningHelper.summonEnderman(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 20);
+                }
+                else if (offhandStack.getItem() == Items.IRON_BLOCK) {
+                    SummoningHelper.summonIronGolem(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 20);
+                }
+
                 if (!itemUsageContextPlayer.isCreative()){
                     itemUsageContext.getStack().damage(1, itemUsageContextPlayer,
                             (entity) -> entity.sendToolBreakStatus(itemUsageContext.getHand()));
                     offhandStack.decrement(1);
 
                 }
-                //itemUsageContextPlayer.getItemCooldownManager().set(this, 600);
+                //itemUsageContextPlayer.getItemCooldownManager().set(this, 1200); // One minute cooldown
             }
         }
         return ActionResult.CONSUME;

@@ -37,7 +37,7 @@ public class SummonedBlazeEntity extends SummonedEntity implements ISummonable {
         return HostileEntity.createHostileAttributes()
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 6.0D)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.23000000417232513D)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 48.0D);
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 64.0D);
     }
 
     @Override

@@ -45,21 +45,21 @@ public class SummonedEntityRegistry {
         registerEntity("summoned_bat", SummonedBatEntity.createBatAttributes(), SUMMONED_BAT_ENTITY);
         registerEntity("summoned_cat", SummonedCatEntity.createCatAttributes(), SUMMONED_CAT_ENTITY);
         registerEntity("summoned_chicken", SummonedChickenEntity.createChickenAttributes(), SUMMONED_CHICKEN_ENTITY);
-        registerEntity("summoned_cow", SummonedCowEntity.createSummonedAttributes(), SUMMONED_COW_ENTITY);
-        registerEntity("summoned_fox", SummonedFoxEntity.createSummonedAttributes(), SUMMONED_FOX_ENTITY);
-        registerEntity("summoned_pig", SummonedPigEntity.createSummonedAttributes(), SUMMONED_PIG_ENTITY);
-        registerEntity("summoned_rabbit", SummonedRabbitEntity.createSummonedAttributes(), SUMMONED_RABBIT_ENTITY);
-        registerEntity("summoned_sheep", SummonedSheepEntity.createSummonedAttributes(), SUMMONED_SHEEP_ENTITY);
+        registerEntity("summoned_cow", SummonedCowEntity.createCowAttributes(), SUMMONED_COW_ENTITY);
+        registerEntity("summoned_fox", SummonedFoxEntity.createFoxAttributes(), SUMMONED_FOX_ENTITY);
+        registerEntity("summoned_pig", SummonedPigEntity.createPigAttributes(), SUMMONED_PIG_ENTITY);
+        registerEntity("summoned_rabbit", SummonedRabbitEntity.createRabbitAttributes(), SUMMONED_RABBIT_ENTITY);
+        registerEntity("summoned_sheep", SummonedSheepEntity.createSheepAttributes(), SUMMONED_SHEEP_ENTITY);
 
         registerEntity("summoned_enderman", SummonedEndermanEntity.createEndermanAttributes(), SUMMONED_ENDERMAN_ENTITY);
-        registerEntity("summoned_iron_golem", SummonedIronGolemEntity.createSummonedAttributes(), SUMMONED_IRON_GOLEM_ENTITY);
-        registerEntity("summoned_llama", SummonedLlamaEntity.createSummonedAttributes(), SUMMONED_LLAMA_ENTITY);
+        registerEntity("summoned_iron_golem", SummonedIronGolemEntity.createIronGolemAttributes(), SUMMONED_IRON_GOLEM_ENTITY);
+        registerEntity("summoned_llama", SummonedLlamaEntity.createLlamaAttributes(), SUMMONED_LLAMA_ENTITY);
         registerEntity("summoned_spider", SummonedSpiderEntity.createSpiderAttributes(), SUMMONED_SPIDER_ENTITY);
-        registerEntity("summoned_wolf", SummonedWolfEntity.createSummonedAttributes(), SUMMONED_WOLF_ENTITY);
+        registerEntity("summoned_wolf", SummonedWolfEntity.createWolfAttributes(), SUMMONED_WOLF_ENTITY);
 
         registerEntity("summoned_blaze", SummonedBlazeEntity.createBlazeAttributes(), SUMMONED_BLAZE_ENTITY);
-        registerEntity("summoned_skeleton", SummonedBlazeEntity.createSummonedAttributes(), SUMMONED_SKELETON_ENTITY);
-        registerEntity("summoned_zombie", SummonedZombieEntity.createSummonedAttributes(), SUMMONED_ZOMBIE_ENTITY);
+        registerEntity("summoned_skeleton", SummonedSkeletonEntity.createAbstractSkeletonAttributes(), SUMMONED_SKELETON_ENTITY);
+        registerEntity("summoned_zombie", SummonedZombieEntity.createZombieAttributes(), SUMMONED_ZOMBIE_ENTITY);
 
     }
 

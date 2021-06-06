@@ -49,7 +49,7 @@ public class SummonedChickenEntity extends SummonedEntity implements ISummonable
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 4.0D)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25D)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3.0D)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 48.0D);
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 64.0D);
     }
 
     @Override
