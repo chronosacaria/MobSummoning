@@ -2,6 +2,8 @@ package chronosacaria.mobsummoning.helpers;
 
 import chronosacaria.mobsummoning.entities.*;
 import chronosacaria.mobsummoning.init.SummonedEntityRegistry;
+import net.fabricmc.fabric.api.biome.v1.BiomeModificationContext;
+import net.fabricmc.fabric.impl.biome.modification.BiomeModificationContextImpl;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -9,6 +11,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeKeys;
 
 public class SummoningHelper {
 
@@ -189,17 +193,34 @@ public class SummoningHelper {
         summonedEntity.equipStack(EquipmentSlot.HEAD, new ItemStack(Items.LEATHER_HELMET));
         world.spawnEntity(summonedEntity);
     }
-    public static void summonZombie (LivingEntity entity, BlockPos blockPos, int cost){
+    public static void summonWitherSkeleton (LivingEntity entity, BlockPos blockPos, int cost){
         World world = entity.getEntityWorld();
 
-        SummonedZombieEntity summonedEntity = SummonedEntityRegistry.SUMMONED_ZOMBIE_ENTITY.create(world);
+        SummonedWitherSkeletonEntity summonedEntity = SummonedEntityRegistry.SUMMONED_WITHER_SKELETON_ENTITY.create(world);
         assert summonedEntity != null;
         summonedEntity.setSummoner(entity);
         summonedEntity.refreshPositionAndAngles(blockPos.getX(), blockPos.getY() + 1, blockPos.getZ(), 0, 0);
         ((PlayerEntity)entity).addExperienceLevels(-cost);
-        summonedEntity.equipStack(EquipmentSlot.MAINHAND, new ItemStack(Items.WOODEN_SWORD));
-        summonedEntity.equipStack(EquipmentSlot.HEAD, new ItemStack(Items.LEATHER_HELMET));
         world.spawnEntity(summonedEntity);
+    }
+    public static void summonZombie (LivingEntity entity, BlockPos blockPos, int cost){
+        World world = entity.getEntityWorld();
+
+        if (entity.getEntityWorld().getBiome(blockPos).getCategory() == Biome.Category.DESERT) {
+            SummonedHuskEntity summonedEntity = SummonedEntityRegistry.SUMMONED_HUSK_ENTITY.create(world);
+            assert summonedEntity != null;
+            summonedEntity.setSummoner(entity);
+            summonedEntity.refreshPositionAndAngles(blockPos.getX(), blockPos.getY() + 1, blockPos.getZ(), 0, 0);
+            ((PlayerEntity)entity).addExperienceLevels(-cost);
+            world.spawnEntity(summonedEntity);
+        } else {
+            SummonedZombieEntity summonedEntity = SummonedEntityRegistry.SUMMONED_ZOMBIE_ENTITY.create(world);
+            assert summonedEntity != null;
+            summonedEntity.setSummoner(entity);
+            summonedEntity.refreshPositionAndAngles(blockPos.getX(), blockPos.getY() + 1, blockPos.getZ(), 0, 0);
+            ((PlayerEntity)entity).addExperienceLevels(-cost);
+            world.spawnEntity(summonedEntity);
+        }
     }
 
 

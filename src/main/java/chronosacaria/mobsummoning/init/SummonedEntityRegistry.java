@@ -37,8 +37,10 @@ public class SummonedEntityRegistry {
 
     public static final EntityType<SummonedBlazeEntity> SUMMONED_BLAZE_ENTITY = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SummonedBlazeEntity::new).dimensions(EntityDimensions.fixed(1, 2)).build();
     public static final EntityType<SummonedGhastEntity> SUMMONED_GHAST_ENTITY = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SummonedGhastEntity::new).dimensions(EntityDimensions.fixed(1, 2)).build();
+    public static final EntityType<SummonedHuskEntity> SUMMONED_HUSK_ENTITY = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SummonedHuskEntity::new).dimensions(EntityDimensions.fixed(1, 2)).build();
     public static final EntityType<SummonedRavagerEntity> SUMMONED_RAVAGER_ENTITY = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SummonedRavagerEntity::new).dimensions(EntityDimensions.fixed(1, 2)).build();
     public static final EntityType<SummonedSkeletonEntity> SUMMONED_SKELETON_ENTITY = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SummonedSkeletonEntity::new).dimensions(EntityDimensions.fixed(1, 2)).build();
+    public static final EntityType<SummonedWitherSkeletonEntity> SUMMONED_WITHER_SKELETON_ENTITY = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SummonedWitherSkeletonEntity::new).dimensions(EntityDimensions.fixed(1, 2)).build();
     public static final EntityType<SummonedZombieEntity> SUMMONED_ZOMBIE_ENTITY = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SummonedZombieEntity::new).dimensions(EntityDimensions.fixed(1, 2)).build();
 
 
@@ -61,8 +63,10 @@ public class SummonedEntityRegistry {
 
         registerEntity("summoned_blaze", SummonedBlazeEntity.createBlazeAttributes(), SUMMONED_BLAZE_ENTITY);
         registerEntity("summoned_ghast", SummonedGhastEntity.createGhastAttributes(), SUMMONED_GHAST_ENTITY);
+        registerEntity("summoned_husk", SummonedHuskEntity.createZombieAttributes(), SUMMONED_HUSK_ENTITY);
         registerEntity("summoned_ravager", SummonedRavagerEntity.createRavagerAttributes(), SUMMONED_RAVAGER_ENTITY);
         registerEntity("summoned_skeleton", SummonedSkeletonEntity.createAbstractSkeletonAttributes(), SUMMONED_SKELETON_ENTITY);
+        registerEntity("summoned_wither_skeleton", SummonedWitherSkeletonEntity.createWitherSkeletonAttributes(), SUMMONED_WITHER_SKELETON_ENTITY);
         registerEntity("summoned_zombie", SummonedZombieEntity.createZombieAttributes(), SUMMONED_ZOMBIE_ENTITY);
 
     }

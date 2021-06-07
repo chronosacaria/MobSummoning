@@ -79,8 +79,11 @@ public class SummoningStaffItem extends Item {
                 else if (offhandStack.getItem() == Items.BLAZE_ROD) {
                     SummoningHelper.summonBlaze(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 15);
                 }
-                else if (offhandStack.getItem() == Items.BOW) {
+                else if (offhandStack.getItem() == Items.SKELETON_SKULL) {
                     SummoningHelper.summonSkeleton(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 15);
+                }
+                else if (offhandStack.getItem() == Items.WITHER_SKELETON_SKULL) {
+                    SummoningHelper.summonWitherSkeleton(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 15);
                 }
                 else if (offhandStack.getItem() == Items.ROTTEN_FLESH) {
                     SummoningHelper.summonZombie(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 15);
