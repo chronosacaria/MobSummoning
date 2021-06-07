@@ -10,13 +10,13 @@ import net.minecraft.util.math.MathHelper;
 
 import java.util.EnumSet;
 
-public class ShootFireballGoal extends Goal {
+public class ShootBlazeFireballGoal extends Goal {
     private final SummonedBlazeEntity blaze;
     private int fireballsFired;
     private int fireballCooldown;
     private int targetNotVisibleTicks;
 
-    public ShootFireballGoal(SummonedBlazeEntity blaze) {
+    public ShootBlazeFireballGoal(SummonedBlazeEntity blaze) {
         this.blaze = blaze;
         this.setControls(EnumSet.of(Goal.Control.MOVE, Goal.Control.LOOK));
     }

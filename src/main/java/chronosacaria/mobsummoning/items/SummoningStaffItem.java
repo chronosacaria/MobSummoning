@@ -87,10 +87,16 @@ public class SummoningStaffItem extends Item {
                 }
 
                 // Uniquely Powerful Mob Summons
-                else if (offhandStack.getItem() == Items.ENDER_PEARL) {
+                else if (offhandStack.getItem() == Items.ENDER_EYE) {
                     SummoningHelper.summonEnderman(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 20);
                 }
                 else if (offhandStack.getItem() == Items.IRON_BLOCK) {
+                    SummoningHelper.summonIronGolem(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 20);
+                }
+                else if (offhandStack.getItem() == Items.GHAST_TEAR) {
+                    SummoningHelper.summonGhast(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 20);
+                }
+                else if (offhandStack.getItem() == Items.MOJANG_BANNER_PATTERN) {
                     SummoningHelper.summonIronGolem(itemUsageContextPlayer, itemUsageContext.getBlockPos(), 20);
                 }
 

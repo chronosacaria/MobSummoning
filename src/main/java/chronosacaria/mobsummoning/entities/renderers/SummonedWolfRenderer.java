@@ -2,10 +2,13 @@ package chronosacaria.mobsummoning.entities.renderers;
 
 import chronosacaria.mobsummoning.entities.SummonedWolfEntity;
 import chronosacaria.mobsummoning.entities.models.SummonedWolfModel;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.util.Identifier;
 
+@Environment(EnvType.CLIENT)
 public class SummonedWolfRenderer extends MobEntityRenderer<SummonedWolfEntity, SummonedWolfModel<SummonedWolfEntity>> {
 
     public SummonedWolfRenderer(EntityRenderDispatcher renderDispatcher){

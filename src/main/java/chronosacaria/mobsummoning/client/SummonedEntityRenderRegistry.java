@@ -28,6 +28,8 @@ public class SummonedEntityRenderRegistry {
         registerRenderMob(SummonedEntityRegistry.SUMMONED_WOLF_ENTITY, SummonedWolfRenderer.class);
 
         registerRenderMob(SummonedEntityRegistry.SUMMONED_BLAZE_ENTITY, SummonedBlazeRenderer.class);
+        registerRenderMob(SummonedEntityRegistry.SUMMONED_GHAST_ENTITY, SummonedGhastRenderer.class);
+        registerRenderMob(SummonedEntityRegistry.SUMMONED_RAVAGER_ENTITY, SummonedRavagerRenderer.class);
         registerRenderMob(SummonedEntityRegistry.SUMMONED_SKELETON_ENTITY, SummonedSkeletonRenderer.class);
         registerRenderMob(SummonedEntityRegistry.SUMMONED_ZOMBIE_ENTITY, SummonedZombieRenderer.class);
     }

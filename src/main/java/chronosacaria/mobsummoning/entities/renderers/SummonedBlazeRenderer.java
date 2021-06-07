@@ -2,12 +2,15 @@ package chronosacaria.mobsummoning.entities.renderers;
 
 import chronosacaria.mobsummoning.entities.SummonedBlazeEntity;
 import chronosacaria.mobsummoning.entities.SummonedSpiderEntity;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.render.entity.model.BlazeEntityModel;
 import net.minecraft.client.render.entity.model.SpiderEntityModel;
 import net.minecraft.util.Identifier;
 
+@Environment(EnvType.CLIENT)
 public class SummonedBlazeRenderer extends MobEntityRenderer<SummonedBlazeEntity, BlazeEntityModel<SummonedBlazeEntity>> {
 
     public SummonedBlazeRenderer(EntityRenderDispatcher renderDispatcher){

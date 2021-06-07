@@ -157,6 +157,26 @@ public class SummoningHelper {
         ((PlayerEntity)entity).addExperienceLevels(-cost);
         world.spawnEntity(summonedEntity);
     }
+    public static void summonGhast (LivingEntity entity, BlockPos blockPos, int cost){
+        World world = entity.getEntityWorld();
+
+        SummonedGhastEntity summonedEntity = SummonedEntityRegistry.SUMMONED_GHAST_ENTITY.create(world);
+        assert summonedEntity != null;
+        summonedEntity.setSummoner(entity);
+        summonedEntity.refreshPositionAndAngles(blockPos.getX(), blockPos.getY() + 1, blockPos.getZ(), 0, 0);
+        ((PlayerEntity)entity).addExperienceLevels(-cost);
+        world.spawnEntity(summonedEntity);
+    }
+    public static void summonRavager (LivingEntity entity, BlockPos blockPos, int cost){
+        World world = entity.getEntityWorld();
+
+        SummonedRavagerEntity summonedEntity = SummonedEntityRegistry.SUMMONED_RAVAGER_ENTITY.create(world);
+        assert summonedEntity != null;
+        summonedEntity.setSummoner(entity);
+        summonedEntity.refreshPositionAndAngles(blockPos.getX(), blockPos.getY() + 1, blockPos.getZ(), 0, 0);
+        ((PlayerEntity)entity).addExperienceLevels(-cost);
+        world.spawnEntity(summonedEntity);
+    }
     public static void summonSkeleton (LivingEntity entity, BlockPos blockPos, int cost){
         World world = entity.getEntityWorld();
 

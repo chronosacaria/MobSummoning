@@ -1,6 +1,6 @@
 package chronosacaria.mobsummoning.entities;
 
-import chronosacaria.mobsummoning.goals.ShootFireballGoal;
+import chronosacaria.mobsummoning.goals.ShootBlazeFireballGoal;
 import chronosacaria.mobsummoning.goals.SummonedEntityFollowSummonerGoal;
 import chronosacaria.mobsummoning.interfaces.ISummonable;
 import net.minecraft.entity.EntityType;
@@ -20,7 +20,7 @@ public class SummonedBlazeEntity extends SummonedEntity implements ISummonable {
 
     @Override
     protected void initGoals(){
-        this.goalSelector.add(1, new ShootFireballGoal(this));
+        this.goalSelector.add(1, new ShootBlazeFireballGoal(this));
         this.goalSelector.add(2, new MeleeAttackGoal(this, 1.0D, true));
         this.goalSelector.add(6, new SummonedEntityFollowSummonerGoal(this, this.getSummoner(), this.world, 0.75,
                 this.getNavigation(), 90.0F, 10.0F, true));

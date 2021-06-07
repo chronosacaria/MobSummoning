@@ -2,12 +2,15 @@ package chronosacaria.mobsummoning.entities.renderers;
 
 import chronosacaria.mobsummoning.entities.SummonedSheepEntity;
 import chronosacaria.mobsummoning.entities.models.SummonedSheepModel;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.render.entity.feature.SheepWoolFeatureRenderer;
 import net.minecraft.client.render.entity.model.SheepEntityModel;
 import net.minecraft.util.Identifier;
 
+@Environment(EnvType.CLIENT)
 public class SummonedSheepRenderer extends MobEntityRenderer<SummonedSheepEntity, SummonedSheepModel<SummonedSheepEntity>> {
 
     public SummonedSheepRenderer(EntityRenderDispatcher renderDispatcher){

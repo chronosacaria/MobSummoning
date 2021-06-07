@@ -1,13 +1,14 @@
 package chronosacaria.mobsummoning.entities.renderers;
 
-import chronosacaria.mobsummoning.entities.SummonedBlazeEntity;
 import chronosacaria.mobsummoning.entities.SummonedSkeletonEntity;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.MobEntityRenderer;
-import net.minecraft.client.render.entity.model.BlazeEntityModel;
 import net.minecraft.client.render.entity.model.SkeletonEntityModel;
 import net.minecraft.util.Identifier;
 
+@Environment(EnvType.CLIENT)
 public class SummonedSkeletonRenderer extends MobEntityRenderer<SummonedSkeletonEntity, SkeletonEntityModel<SummonedSkeletonEntity>> {
 
     public SummonedSkeletonRenderer(EntityRenderDispatcher renderDispatcher){
