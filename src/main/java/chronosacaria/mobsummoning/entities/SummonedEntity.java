@@ -56,7 +56,7 @@ public abstract class SummonedEntity extends HostileEntity implements ISummonabl
 
     public void writeCustomDataToTag(CompoundTag tag){
         super.writeCustomDataToTag(tag);
-        tag.putUuid("SummonerUUID",getSummonerUuid().get());
+        tag.putUuid("SummonerUUID", getSummonerUuid().get());
     }
 
     public void readCustomDataFromTag(CompoundTag tag){
