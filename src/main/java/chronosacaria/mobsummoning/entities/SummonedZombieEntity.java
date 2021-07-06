@@ -11,6 +11,8 @@ import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
 
+import static chronosacaria.mobsummoning.configs.MobSummoningStatsConfig.*;
+
 public class SummonedZombieEntity extends SummonedEntity implements ISummonable {
 
     public SummonedZombieEntity(EntityType<? extends HostileEntity> entityType, World world) {
@@ -31,10 +33,13 @@ public class SummonedZombieEntity extends SummonedEntity implements ISummonable 
 
     public static DefaultAttributeContainer.Builder createZombieAttributes() {
         return HostileEntity.createHostileAttributes()
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 64.0D)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.23000000417232513D)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3.0D)
-                .add(EntityAttributes.GENERIC_ARMOR, 2.0D);
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, getSummonMaxHealth("summoned_zombie"))
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, getSummonAttackDamage("summoned_zombie"))
+                .add(EntityAttributes.GENERIC_ARMOR, getSummonArmor("summoned_zombie"))
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, getSummonMovementSpeed("summoned_zombie"))
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, getSummonFollowRange("summoned_zombie"))
+                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, getSummonAttackKnockback("summoned_zombie"))
+                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, getSummonKnockbackResistance("summoned_zombie"));
     }
 
     @Override

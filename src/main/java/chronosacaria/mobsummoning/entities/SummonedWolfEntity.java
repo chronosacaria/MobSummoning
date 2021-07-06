@@ -14,6 +14,8 @@ import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.world.World;
 
+import static chronosacaria.mobsummoning.configs.MobSummoningStatsConfig.*;
+
 public class SummonedWolfEntity extends SummonedEntity implements ISummonable {
 
     public SummonedWolfEntity(EntityType<? extends HostileEntity> entityType, World world) {
@@ -31,10 +33,13 @@ public class SummonedWolfEntity extends SummonedEntity implements ISummonable {
 
     public static DefaultAttributeContainer.Builder createWolfAttributes() {
         return MobEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.30000001192092896D)
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 8.0D)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 6.0D)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 64.0D);
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, getSummonMaxHealth("summoned_wolf"))
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, getSummonAttackDamage("summoned_wolf"))
+                .add(EntityAttributes.GENERIC_ARMOR, getSummonArmor("summoned_wolf"))
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, getSummonMovementSpeed("summoned_wolf"))
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, getSummonFollowRange("summoned_wolf"))
+                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, getSummonAttackKnockback("summoned_wolf"))
+                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, getSummonKnockbackResistance("summoned_wolf"));
     }
 
     @Override

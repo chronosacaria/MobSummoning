@@ -32,8 +32,10 @@ public class SummonedCatEntity extends SummonedEntity implements ISummonable {
         return HostileEntity.createHostileAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, getSummonMaxHealth("summoned_cat"))
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, getSummonAttackDamage("summoned_cat"))
+                .add(EntityAttributes.GENERIC_ARMOR, getSummonArmor("summoned_cat"))
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, getSummonMovementSpeed("summoned_cat"))
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, getSummonFollowRange("summoned_cat"))
+                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, getSummonAttackKnockback("summoned_cat"))
                 .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, getSummonKnockbackResistance("summoned_cat"));
     }
 

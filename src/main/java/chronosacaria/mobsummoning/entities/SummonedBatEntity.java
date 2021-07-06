@@ -33,9 +33,11 @@ public class SummonedBatEntity extends SummonedEntity implements ISummonable {
     public static DefaultAttributeContainer.Builder createBatAttributes() {
         return HostileEntity.createHostileAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, getSummonMaxHealth("summoned_bat"))
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, getSummonMovementSpeed("summoned_bat"))
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, getSummonAttackDamage("summoned_bat"))
+                .add(EntityAttributes.GENERIC_ARMOR, getSummonArmor("summoned_bat"))
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, getSummonMovementSpeed("summoned_bat"))
                 .add(EntityAttributes.GENERIC_FOLLOW_RANGE, getSummonFollowRange("summoned_bat"))
+                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, getSummonAttackKnockback("summoned_bat"))
                 .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, getSummonKnockbackResistance("summoned_bat"));
     }
 

@@ -21,6 +21,8 @@ import net.minecraft.util.DyeColor;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
+import static chronosacaria.mobsummoning.configs.MobSummoningStatsConfig.*;
+
 
 public class SummonedSheepEntity extends SummonedEntity implements ISummonable {
     private static final TrackedData<Byte> COLOR;
@@ -56,10 +58,13 @@ public class SummonedSheepEntity extends SummonedEntity implements ISummonable {
 
     public static DefaultAttributeContainer.Builder createSheepAttributes() {
         return HostileEntity.createHostileAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 8.0D)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.23000000417232513D)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4.0D)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 64.0D);
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, getSummonMaxHealth("summoned_sheep"))
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, getSummonAttackDamage("summoned_sheep"))
+                .add(EntityAttributes.GENERIC_ARMOR, getSummonArmor("summoned_sheep"))
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, getSummonMovementSpeed("summoned_sheep"))
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, getSummonFollowRange("summoned_sheep"))
+                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, getSummonAttackKnockback("summoned_sheep"))
+                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, getSummonKnockbackResistance("summoned_sheep"));
     }
 
     @Environment(EnvType.CLIENT)

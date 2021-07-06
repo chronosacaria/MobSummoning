@@ -13,6 +13,9 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.world.World;
 
+import static chronosacaria.mobsummoning.configs.MobSummoningStatsConfig.*;
+import static chronosacaria.mobsummoning.configs.MobSummoningStatsConfig.getSummonKnockbackResistance;
+
 public class SummonedRavagerEntity extends SummonedEntity implements ISummonable {
 
     private int attackTick;
@@ -34,12 +37,13 @@ public class SummonedRavagerEntity extends SummonedEntity implements ISummonable
 
     public static DefaultAttributeContainer.Builder createRavagerAttributes() {
         return HostileEntity.createHostileAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 100.0D)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.3D)
-                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 0.75D)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 12.0D)
-                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 1.5D)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 64.0D);
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, getSummonMaxHealth("summoned_ravager"))
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, getSummonAttackDamage("summoned_ravager"))
+                .add(EntityAttributes.GENERIC_ARMOR, getSummonArmor("summoned_ravager"))
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, getSummonMovementSpeed("summoned_ravager"))
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, getSummonFollowRange("summoned_ravager"))
+                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, getSummonAttackKnockback("summoned_ravager"))
+                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, getSummonKnockbackResistance("summoned_ravager"));
     }
 
     @Environment(EnvType.CLIENT)

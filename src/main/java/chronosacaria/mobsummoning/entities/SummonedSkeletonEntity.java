@@ -18,6 +18,8 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
+import static chronosacaria.mobsummoning.configs.MobSummoningStatsConfig.*;
+
 public class SummonedSkeletonEntity extends SummonedEntity implements ISummonable, RangedAttackMob {
 
     public SummonedSkeletonEntity(EntityType<? extends HostileEntity> entityType, World world) {
@@ -39,9 +41,13 @@ public class SummonedSkeletonEntity extends SummonedEntity implements ISummonabl
 
     public static DefaultAttributeContainer.Builder createAbstractSkeletonAttributes() {
         return HostileEntity.createHostileAttributes()
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25D)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 5.0D)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 64.0D);
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, getSummonMaxHealth("summoned_skeleton"))
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, getSummonAttackDamage("summoned_skeleton"))
+                .add(EntityAttributes.GENERIC_ARMOR, getSummonArmor("summoned_skeleton"))
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, getSummonMovementSpeed("summoned_skeleton"))
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, getSummonFollowRange("summoned_skeleton"))
+                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, getSummonAttackKnockback("summoned_skeleton"))
+                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, getSummonKnockbackResistance("summoned_skeleton"));
     }
 
     @Override

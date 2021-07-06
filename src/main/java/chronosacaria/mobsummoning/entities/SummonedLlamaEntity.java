@@ -11,9 +11,10 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.world.World;
 
-public class SummonedLlamaEntity extends SummonedEntity implements ISummonable {
+import static chronosacaria.mobsummoning.configs.MobSummoningStatsConfig.*;
+import static chronosacaria.mobsummoning.configs.MobSummoningStatsConfig.getSummonKnockbackResistance;
 
-    private boolean spit;
+public class SummonedLlamaEntity extends SummonedEntity implements ISummonable {
 
     public SummonedLlamaEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
@@ -31,10 +32,13 @@ public class SummonedLlamaEntity extends SummonedEntity implements ISummonable {
 
     public static DefaultAttributeContainer.Builder createLlamaAttributes() {
         return HostileEntity.createHostileAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 10.0D)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.20000000298023224D)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 5.0D)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 64.0D);
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, getSummonMaxHealth("summoned_llama"))
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, getSummonAttackDamage("summoned_llama"))
+                .add(EntityAttributes.GENERIC_ARMOR, getSummonArmor("summoned_llama"))
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, getSummonMovementSpeed("summoned_llama"))
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, getSummonFollowRange("summoned_llama"))
+                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, getSummonAttackKnockback("summoned_llama"))
+                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, getSummonKnockbackResistance("summoned_llama"));
     }
 
     @Override

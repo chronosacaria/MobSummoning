@@ -23,6 +23,8 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
 
+import static chronosacaria.mobsummoning.configs.MobSummoningStatsConfig.*;
+
 public class SummonedWitherSkeletonEntity extends SummonedEntity implements ISummonable, RangedAttackMob {
 
     public SummonedWitherSkeletonEntity(EntityType<? extends HostileEntity> entityType, World world) {
@@ -43,9 +45,13 @@ public class SummonedWitherSkeletonEntity extends SummonedEntity implements ISum
 
     public static DefaultAttributeContainer.Builder createWitherSkeletonAttributes() {
         return HostileEntity.createHostileAttributes()
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25D)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 8.0D)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 64.0D);
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, getSummonMaxHealth("summoned_wither_skeleton"))
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, getSummonAttackDamage("summoned_wither_skeleton"))
+                .add(EntityAttributes.GENERIC_ARMOR, getSummonArmor("summoned_wither_skeleton"))
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, getSummonMovementSpeed("summoned_wither_skeleton"))
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, getSummonFollowRange("summoned_wither_skeleton"))
+                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, getSummonAttackKnockback("summoned_wither_skeleton"))
+                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, getSummonKnockbackResistance("summoned_wither_skeleton"));
     }
 
     @Override
