@@ -15,6 +15,8 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
+import static chronosacaria.mobsummoning.configs.MobSummoningStatsConfig.*;
+
 public class SummonedChickenEntity extends SummonedEntity implements ISummonable {
 
     public float flapProgress;
@@ -42,10 +44,11 @@ public class SummonedChickenEntity extends SummonedEntity implements ISummonable
 
     public static DefaultAttributeContainer.Builder createChickenAttributes() {
         return HostileEntity.createHostileAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 4.0D)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25D)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3.0D)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 64.0D);
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, getSummonMaxHealth("summoned_chicken"))
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, getSummonAttackDamage("summoned_chicken"))
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, getSummonMovementSpeed("summoned_chicken"))
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, getSummonFollowRange("summoned_chicken"))
+                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, getSummonKnockbackResistance("summoned_chicken"));
     }
 
     @Override

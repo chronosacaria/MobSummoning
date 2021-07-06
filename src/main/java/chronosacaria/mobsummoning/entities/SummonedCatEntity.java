@@ -11,6 +11,8 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.world.World;
 
+import static chronosacaria.mobsummoning.configs.MobSummoningStatsConfig.*;
+
 public class SummonedCatEntity extends SummonedEntity implements ISummonable {
 
     public SummonedCatEntity(EntityType<? extends HostileEntity> entityType, World world) {
@@ -28,10 +30,11 @@ public class SummonedCatEntity extends SummonedEntity implements ISummonable {
 
     public static DefaultAttributeContainer.Builder createCatAttributes() {
         return HostileEntity.createHostileAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 10.0D)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.30000001192092896D)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3.0D)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 64.0D);
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, getSummonMaxHealth("summoned_cat"))
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, getSummonAttackDamage("summoned_cat"))
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, getSummonMovementSpeed("summoned_cat"))
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, getSummonFollowRange("summoned_cat"))
+                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, getSummonKnockbackResistance("summoned_cat"));
     }
 
     @Override

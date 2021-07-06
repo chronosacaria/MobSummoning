@@ -13,6 +13,8 @@ import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.world.World;
 
+import static chronosacaria.mobsummoning.configs.MobSummoningStatsConfig.*;
+
 public class SummonedCowEntity extends SummonedEntity implements ISummonable {
 
     public SummonedCowEntity(EntityType<? extends HostileEntity> entityType, World world) {
@@ -35,10 +37,11 @@ public class SummonedCowEntity extends SummonedEntity implements ISummonable {
 
     public static DefaultAttributeContainer.Builder createCowAttributes() {
         return HostileEntity.createHostileAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 10.0D)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.20000000298023224D)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4.0D)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 64.0D);
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, getSummonMaxHealth("summoned_cow"))
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, getSummonAttackDamage("summoned_cow"))
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, getSummonMovementSpeed("summoned_cow"))
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, getSummonFollowRange("summoned_cow"))
+                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, getSummonKnockbackResistance("summoned_cow"));
     }
 
     @Override

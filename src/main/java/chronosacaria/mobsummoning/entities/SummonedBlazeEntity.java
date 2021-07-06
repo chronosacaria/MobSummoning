@@ -1,5 +1,6 @@
 package chronosacaria.mobsummoning.entities;
 
+import chronosacaria.mobsummoning.configs.MobSummoningStatsConfig;
 import chronosacaria.mobsummoning.goals.ShootBlazeFireballGoal;
 import chronosacaria.mobsummoning.goals.SummonedEntityFollowSummonerGoal;
 import chronosacaria.mobsummoning.interfaces.ISummonable;
@@ -10,6 +11,8 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.world.World;
+
+import static chronosacaria.mobsummoning.configs.MobSummoningStatsConfig.*;
 
 public class SummonedBlazeEntity extends SummonedEntity implements ISummonable {
 
@@ -31,9 +34,11 @@ public class SummonedBlazeEntity extends SummonedEntity implements ISummonable {
 
     public static DefaultAttributeContainer.Builder createBlazeAttributes() {
         return HostileEntity.createHostileAttributes()
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 6.0D)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.23000000417232513D)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 64.0D);
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, getSummonMaxHealth("summoned_blaze"))
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, getSummonAttackDamage("summoned_blaze"))
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, getSummonMovementSpeed("summoned_blaze"))
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, getSummonFollowRange("summoned_blaze"))
+                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, getSummonKnockbackResistance("summoned_blaze"));
     }
 
     @Override

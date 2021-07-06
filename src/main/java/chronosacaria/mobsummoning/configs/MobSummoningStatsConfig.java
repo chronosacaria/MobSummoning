@@ -45,22 +45,42 @@ public class MobSummoningStatsConfig {
 
     public static void initSummonMaxHealth(){
         MAX_HEALTH.put("summoned_bat", 6.0D);
+        MAX_HEALTH.put("summoned_blaze", 20.0D);
+        MAX_HEALTH.put("summoned_cat", 10.0D);
+        MAX_HEALTH.put("summoned_chicken", 4.0D);
+        MAX_HEALTH.put("summoned_cow", 10.0D);
     }
 
     public static void initSummonMovementSpeed(){
         MOVEMENT_SPEED.put("summoned_bat", 1.0D);
+        MOVEMENT_SPEED.put("summoned_blaze", 0.23D);
+        MOVEMENT_SPEED.put("summoned_cat", 0.30D);
+        MOVEMENT_SPEED.put("summoned_chicken", 0.25D);
+        MOVEMENT_SPEED.put("summoned_cow", 0.25D);
     }
 
     public static void initSummonAttackDamage(){
         ATTACK_DAMAGE.put("summoned_bat", 1.0D);
+        ATTACK_DAMAGE.put("summoned_blaze", 6.0D);
+        ATTACK_DAMAGE.put("summoned_cat", 3.0D);
+        ATTACK_DAMAGE.put("summoned_chicken", 3.0D);
+        ATTACK_DAMAGE.put("summoned_cow", 4.0D);
     }
 
     public static void initSummonFollowRange(){
         FOLLOW_RANGE.put("summoned_bat", 64.0D);
+        FOLLOW_RANGE.put("summoned_blaze", 64.0D);
+        FOLLOW_RANGE.put("summoned_cat", 64.0D);
+        FOLLOW_RANGE.put("summoned_chicken", 64.0D);
+        FOLLOW_RANGE.put("summoned_cow", 64.0D);
     }
 
     public static void initSummonKnockbackResistance(){
         KNOCKBACK_RESISTANCE.put("summoned_bat", 0.0D);
+        KNOCKBACK_RESISTANCE.put("summoned_blaze", 0.0D);
+        KNOCKBACK_RESISTANCE.put("summoned_cat", 0.0D);
+        KNOCKBACK_RESISTANCE.put("summoned_chicken", 0.0D);
+        KNOCKBACK_RESISTANCE.put("summoned_cow", 0.0D);
     }
 
     public static void generateConfigs(boolean overwrite){

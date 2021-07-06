@@ -1,6 +1,5 @@
 package chronosacaria.mobsummoning.entities;
 
-import chronosacaria.mobsummoning.configs.MobSummoningStatsConfig;
 import chronosacaria.mobsummoning.goals.SummonedEntityFollowSummonerGoal;
 import chronosacaria.mobsummoning.interfaces.ISummonable;
 import net.minecraft.entity.EntityType;
@@ -11,6 +10,8 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
+
+import static chronosacaria.mobsummoning.configs.MobSummoningStatsConfig.*;
 
 public class SummonedBatEntity extends SummonedEntity implements ISummonable {
 
@@ -31,10 +32,11 @@ public class SummonedBatEntity extends SummonedEntity implements ISummonable {
 
     public static DefaultAttributeContainer.Builder createBatAttributes() {
         return HostileEntity.createHostileAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, MobSummoningStatsConfig.getSummonMaxHealth("summoned_bat"))
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, MobSummoningStatsConfig.getSummonMovementSpeed("summoned_bat"))
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, MobSummoningStatsConfig.getSummonAttackDamage("summoned_bat"))
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, MobSummoningStatsConfig.getSummonFollowRange("summoned_bat"));
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, getSummonMaxHealth("summoned_bat"))
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, getSummonMovementSpeed("summoned_bat"))
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, getSummonAttackDamage("summoned_bat"))
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, getSummonFollowRange("summoned_bat"))
+                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, getSummonKnockbackResistance("summoned_bat"));
     }
 
     @Override
