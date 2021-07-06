@@ -228,7 +228,7 @@ public class MobSummoningStatsConfig {
             config.append("\n");
         }
         config.append("}");
-        MobSummoningBaseConfig.createFile("config/mob_summoning/summon_health_config.json5", config.toString(),
+        MobSummoningBaseConfig.createFile("config/mob_summoning/summons/summon_health_config.json5", config.toString(),
                 overwrite);
 
         config = new StringBuilder("{\n");
@@ -242,7 +242,7 @@ public class MobSummoningStatsConfig {
             config.append("\n");
         }
         config.append("}");
-        MobSummoningBaseConfig.createFile("config/mob_summoning/summon_movement_speed_config.json5", config.toString(),
+        MobSummoningBaseConfig.createFile("config/mob_summoning/summons/summon_movement_speed_config.json5", config.toString(),
                 overwrite);
 
         config = new StringBuilder("{\n");
@@ -256,7 +256,7 @@ public class MobSummoningStatsConfig {
             config.append("\n");
         }
         config.append("}");
-        MobSummoningBaseConfig.createFile("config/mob_summoning/summon_attack_damage_config.json5", config.toString(),
+        MobSummoningBaseConfig.createFile("config/mob_summoning/summons/summon_attack_damage_config.json5", config.toString(),
                 overwrite);
 
         config = new StringBuilder("{\n");
@@ -270,7 +270,7 @@ public class MobSummoningStatsConfig {
             config.append("\n");
         }
         config.append("}");
-        MobSummoningBaseConfig.createFile("config/mob_summoning/summon_generic_armor_config.json5", config.toString(),
+        MobSummoningBaseConfig.createFile("config/mob_summoning/summons/summon_generic_armor_config.json5", config.toString(),
                 overwrite);
 
         config = new StringBuilder("{\n");
@@ -284,7 +284,7 @@ public class MobSummoningStatsConfig {
             config.append("\n");
         }
         config.append("}");
-        MobSummoningBaseConfig.createFile("config/mob_summoning/summon_follow_range_config.json5", config.toString(),
+        MobSummoningBaseConfig.createFile("config/mob_summoning/summons/summon_follow_range_config.json5", config.toString(),
                 overwrite);
 
         config = new StringBuilder("{\n");
@@ -298,7 +298,7 @@ public class MobSummoningStatsConfig {
             config.append("\n");
         }
         config.append("}");
-        MobSummoningBaseConfig.createFile("config/mob_summoning/summon_attack_knockback_config.json5",
+        MobSummoningBaseConfig.createFile("config/mob_summoning/summons/summon_attack_knockback_config.json5",
                 config.toString(), overwrite);
 
         config = new StringBuilder("{\n");
@@ -312,43 +312,43 @@ public class MobSummoningStatsConfig {
             config.append("\n");
         }
         config.append("}");
-        MobSummoningBaseConfig.createFile("config/mob_summoning/summon_knockback_resistance_config.json5",
+        MobSummoningBaseConfig.createFile("config/mob_summoning/summons/summon_knockback_resistance_config.json5",
                 config.toString(), overwrite);
     }
 
     public static void loadConfig(){
         JsonObject jsonObject;
-        jsonObject = MobSummoningBaseConfig.getJsonObject(MobSummoningBaseConfig.readFile(new File("config/mob_summoning/summon_health_config.json5")));
+        jsonObject = MobSummoningBaseConfig.getJsonObject(MobSummoningBaseConfig.readFile(new File("config/mob_summoning/summons/summon_health_config.json5")));
         for (Map.Entry<String, JsonElement> entry : jsonObject.entrySet()) {
             MAX_HEALTH.put(entry.getKey(), entry.getValue().getAsDouble());
         }
 
-        jsonObject = MobSummoningBaseConfig.getJsonObject(MobSummoningBaseConfig.readFile(new File("config/mob_summoning/summon_movement_speed_config.json5")));
+        jsonObject = MobSummoningBaseConfig.getJsonObject(MobSummoningBaseConfig.readFile(new File("config/mob_summoning/summons/summon_movement_speed_config.json5")));
         for (Map.Entry<String, JsonElement> entry : jsonObject.entrySet()) {
             MOVEMENT_SPEED.put(entry.getKey(), entry.getValue().getAsDouble());
         }
 
-        jsonObject = MobSummoningBaseConfig.getJsonObject(MobSummoningBaseConfig.readFile(new File("config/mob_summoning/summon_attack_damage_config.json5")));
+        jsonObject = MobSummoningBaseConfig.getJsonObject(MobSummoningBaseConfig.readFile(new File("config/mob_summoning/summons/summon_attack_damage_config.json5")));
         for (Map.Entry<String, JsonElement> entry : jsonObject.entrySet()) {
             ATTACK_DAMAGE.put(entry.getKey(), entry.getValue().getAsDouble());
         }
 
-        jsonObject = MobSummoningBaseConfig.getJsonObject(MobSummoningBaseConfig.readFile(new File("config/mob_summoning/summon_generic_armor_config.json5")));
+        jsonObject = MobSummoningBaseConfig.getJsonObject(MobSummoningBaseConfig.readFile(new File("config/mob_summoning/summons/summon_generic_armor_config.json5")));
         for (Map.Entry<String, JsonElement> entry : jsonObject.entrySet()) {
             GENERIC_ARMOR.put(entry.getKey(), entry.getValue().getAsDouble());
         }
 
-        jsonObject = MobSummoningBaseConfig.getJsonObject(MobSummoningBaseConfig.readFile(new File("config/mob_summoning/summon_follow_range_config.json5")));
+        jsonObject = MobSummoningBaseConfig.getJsonObject(MobSummoningBaseConfig.readFile(new File("config/mob_summoning/summons/summon_follow_range_config.json5")));
         for (Map.Entry<String, JsonElement> entry : jsonObject.entrySet()) {
             FOLLOW_RANGE.put(entry.getKey(), entry.getValue().getAsDouble());
         }
 
-        jsonObject = MobSummoningBaseConfig.getJsonObject(MobSummoningBaseConfig.readFile(new File("config/mob_summoning/summon_attack_knockback_config.json5")));
+        jsonObject = MobSummoningBaseConfig.getJsonObject(MobSummoningBaseConfig.readFile(new File("config/mob_summoning/summons/summon_attack_knockback_config.json5")));
         for (Map.Entry<String, JsonElement> entry : jsonObject.entrySet()) {
             ATTACK_KNOCKBACK.put(entry.getKey(), entry.getValue().getAsDouble());
         }
 
-        jsonObject = MobSummoningBaseConfig.getJsonObject(MobSummoningBaseConfig.readFile(new File("config/mob_summoning/summon_knockback_resistance_config.json5")));
+        jsonObject = MobSummoningBaseConfig.getJsonObject(MobSummoningBaseConfig.readFile(new File("config/mob_summoning/summons/summon_knockback_resistance_config.json5")));
         for (Map.Entry<String, JsonElement> entry : jsonObject.entrySet()) {
             KNOCKBACK_RESISTANCE.put(entry.getKey(), entry.getValue().getAsDouble());
         }

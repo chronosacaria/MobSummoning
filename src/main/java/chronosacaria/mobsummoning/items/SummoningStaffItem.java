@@ -1,6 +1,7 @@
 package chronosacaria.mobsummoning.items;
 
 import chronosacaria.mobsummoning.MobSummoning;
+import chronosacaria.mobsummoning.configs.MobSummoningItemConfig;
 import chronosacaria.mobsummoning.helpers.SummoningHelper;
 import chronosacaria.mobsummoning.init.ItemsInit;
 import chronosacaria.mobsummoning.init.SummonedEntityRegistry;
@@ -155,7 +156,9 @@ public class SummoningStaffItem extends Item {
                     offhandStack.decrement(1);
 
                 }
-                //itemUsageContextPlayer.getItemCooldownManager().set(this, 1200); // One minute cooldown
+                itemUsageContextPlayer.getItemCooldownManager().set(this,
+                        MobSummoningItemConfig.getItemCooldown("summoning_staff"));
+                // cooldown
             }
         }
         return ActionResult.CONSUME;

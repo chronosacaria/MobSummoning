@@ -1,5 +1,6 @@
 package chronosacaria.mobsummoning.loottables;
 
+import chronosacaria.mobsummoning.configs.MobSummoningItemConfig;
 import chronosacaria.mobsummoning.init.ItemsInit;
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
@@ -11,7 +12,7 @@ public class MobSummoningLootTables {
         LootTableLoadingCallback.EVENT.register((((resourceManager, manager, id, supplier, setter) -> {
             if ("minecraft:entities/bat".equals(id.toString())) {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
-                        .rolls(BinomialLootTableRange.create(1, 0.5F))
+                        .rolls(BinomialLootTableRange.create(1, MobSummoningItemConfig.getItemDrop("bat_wing")))
                         .with(ItemEntry.builder(ItemsInit.BAT_WING));
                 supplier.pool(poolBuilder);
             }

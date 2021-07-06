@@ -2,6 +2,7 @@ package chronosacaria.mobsummoning;
 
 import chronosacaria.mobsummoning.commands.SummonMobCommand;
 import chronosacaria.mobsummoning.configs.MobSummoningBaseConfig;
+import chronosacaria.mobsummoning.configs.MobSummoningItemConfig;
 import chronosacaria.mobsummoning.configs.MobSummoningStatsConfig;
 import chronosacaria.mobsummoning.init.ItemsInit;
 import chronosacaria.mobsummoning.init.SummonedEntityRegistry;
@@ -26,14 +27,22 @@ public class MobSummoning implements ModInitializer {
 
         // Config Begin
         MobSummoningStatsConfig.initAll();
+        MobSummoningItemConfig.initAll();
 
-        String defaultConfig = "{\n" + " \"regenerate_stats_config\": false\n" + "}";
+        String defaultConfig =
+                        "{\n" +
+                        "  \"regenerate_stats_configs\": false,\n" +
+                        "  \"regenerate_item_configs\": false\n" +
+                        "}";
         File configFile = MobSummoningBaseConfig.createFile("config/mob_summoning/config.json", defaultConfig, false);
         JsonObject json = MobSummoningBaseConfig.getJsonObject(MobSummoningBaseConfig.readFile(configFile));
 
         MobSummoningStatsConfig.generateConfigs(json == null || !json.has("regenerate_stats_configs") || json.get(
                 "regenerate_stats_configs").getAsBoolean());
         MobSummoningStatsConfig.loadConfig();
+        MobSummoningItemConfig.generateConfigs(json == null || !json.has("regenerate_item_configs") || json.get(
+                "regenerate_stats_configs").getAsBoolean());
+        MobSummoningItemConfig.loadConfig();
         // Config End
 
         CommandRegistrationCallback.EVENT.register(new SummonMobCommand());
