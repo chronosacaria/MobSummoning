@@ -9,7 +9,7 @@
   ],
   "contact": {},
   "license": "MIT",
-  "icon": "assets/MobSummoning/icon.png",
+  "icon": "assets/mobsummoning/icon.png",
   "environment": "*",
   "entrypoints": {
     "client": [
@@ -20,11 +20,10 @@
     ]
   },
   "mixins": [
-    "MobSummoning.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.11.3",
     "fabric": "*",
-    "minecraft": "1.16.5"
+    "minecraft": "1.16.x"
   }
 }
