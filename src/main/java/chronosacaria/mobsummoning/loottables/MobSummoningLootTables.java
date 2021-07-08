@@ -16,6 +16,12 @@ public class MobSummoningLootTables {
                         .with(ItemEntry.builder(ItemsInit.BAT_WING));
                 supplier.pool(poolBuilder);
             }
+            if ("minecraft:entities/ravager".equals(id.toString())) {
+                FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
+                        .rolls(BinomialLootTableRange.create(1, MobSummoningItemConfig.getItemDrop("ravager_horn")))
+                        .with(ItemEntry.builder(ItemsInit.RAVAGER_HORN));
+                supplier.pool(poolBuilder);
+            }
         })));
     }
 }

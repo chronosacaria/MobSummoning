@@ -144,7 +144,7 @@ public class SummoningStaffItem extends Item {
                             itemUsageContextPlayer,
                             itemUsageContext.getBlockPos(), 20);
                 }
-                else if (offhandStack.getItem() == Items.MOJANG_BANNER_PATTERN) {
+                else if (offhandStack.getItem() == ItemsInit.RAVAGER_HORN) {
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_RAVAGER_ENTITY.create(world),
                             itemUsageContextPlayer,
                             itemUsageContext.getBlockPos(), 20);

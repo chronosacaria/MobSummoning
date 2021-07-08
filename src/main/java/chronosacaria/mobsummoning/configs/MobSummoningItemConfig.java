@@ -30,6 +30,7 @@ public class MobSummoningItemConfig {
 
     public static void initItemLoottableDrops(){
         ITEM_DROP.put("bat_wing", 0.5F);
+        ITEM_DROP.put("ravager_horn", 0.125F);
     }
 
     public static void generateConfigs(boolean overwrite) {
