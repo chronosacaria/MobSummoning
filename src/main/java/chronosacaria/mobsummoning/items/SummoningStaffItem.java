@@ -40,155 +40,180 @@ public class SummoningStaffItem extends Item {
         } else {
             PlayerEntity itemUsageContextPlayer = itemUsageContext.getPlayer();
 
-            if (itemUsageContextPlayer != null && itemUsageContextPlayer.experienceLevel >= 5 && !offhandStack.isEmpty() && offhandStack.getItem() != ItemsInit.SUMMONING_STAFF){
+            if (itemUsageContextPlayer != null
+                    && itemUsageContextPlayer.experienceLevel >= 5
+                    && !offhandStack.isEmpty()
+                    && offhandStack.getItem()
+                    != ItemsInit.SUMMONING_STAFF){
 
                 // Passive Mob Summons
-                if (offhandStack.getItem() == ItemsInit.BAT_WING && MobSummoningSummonableConfig.isSummonable(
-                        "summoned_bat")) {
+                if (MobSummoningSummonableConfig.isSummonable("summoned_bat")) {
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_BAT_ENTITY.create(world),
                             itemUsageContextPlayer,
-                            itemUsageContext.getBlockPos(), 5);
-                    offhandStack.decrement(1);
+                            itemUsageContext.getBlockPos(),
+                            ItemsInit.BAT_WING,
+                            MobSummoningSummonableConfig.summonXPCost("summoned_bat"),
+                            MobSummoningSummonableConfig.summonItemAmountCost("summoned_bat"));
                 }
-                else if (offhandStack.getItem() == Items.STRING && MobSummoningSummonableConfig.isSummonable(
-                        "summoned_cat")){
+                else if (MobSummoningSummonableConfig.isSummonable("summoned_cat")){
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_CAT_ENTITY.create(world),
                             itemUsageContextPlayer,
-                            itemUsageContext.getBlockPos(), 5);
-                    offhandStack.decrement(1);
+                            itemUsageContext.getBlockPos(),
+                            Items.STRING,
+                            MobSummoningSummonableConfig.summonXPCost("summoned_cat"),
+                            MobSummoningSummonableConfig.summonItemAmountCost("summoned_cat"));
                 }
-                else if (offhandStack.getItem() == Items.CHICKEN && MobSummoningSummonableConfig.isSummonable(
-                        "summoned_chicken")){
+                else if (MobSummoningSummonableConfig.isSummonable("summoned_chicken")){
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_CHICKEN_ENTITY.create(world),
                             itemUsageContextPlayer,
-                            itemUsageContext.getBlockPos(), 5);
-                    offhandStack.decrement(1);
+                            itemUsageContext.getBlockPos(),
+                            Items.CHICKEN,
+                            MobSummoningSummonableConfig.summonXPCost("summoned_chicken"),
+                            MobSummoningSummonableConfig.summonItemAmountCost("summoned_chicken"));
                 }
-                else if (offhandStack.getItem() == Items.BEEF && MobSummoningSummonableConfig.isSummonable(
-                        "summoned_cow")){
+                else if (MobSummoningSummonableConfig.isSummonable("summoned_cow")){
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_COW_ENTITY.create(world),
                             itemUsageContextPlayer,
-                            itemUsageContext.getBlockPos(), 5);
-                    offhandStack.decrement(1);
+                            itemUsageContext.getBlockPos(),
+                            Items.BEEF,
+                            MobSummoningSummonableConfig.summonXPCost("summoned_cow"),
+                            MobSummoningSummonableConfig.summonItemAmountCost("summoned_cow"));
                 }
-                else if (offhandStack.getItem() == Items.SWEET_BERRIES && MobSummoningSummonableConfig.isSummonable(
-                        "summoned_fox")){
+                else if (MobSummoningSummonableConfig.isSummonable("summoned_fox")){
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_FOX_ENTITY.create(world),
                             itemUsageContextPlayer,
-                            itemUsageContext.getBlockPos(), 5);
-                    offhandStack.decrement(1);
+                            itemUsageContext.getBlockPos(),
+                            Items.SWEET_BERRIES,
+                            MobSummoningSummonableConfig.summonXPCost("summoned_fox"),
+                            MobSummoningSummonableConfig.summonItemAmountCost("summoned_fox"));
                 }
-                else if (offhandStack.getItem() == Items.PORKCHOP && MobSummoningSummonableConfig.isSummonable(
-                        "summoned_pig")){
+                else if (MobSummoningSummonableConfig.isSummonable("summoned_pig")){
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_PIG_ENTITY.create(world),
                             itemUsageContextPlayer,
-                            itemUsageContext.getBlockPos(), 5);
-                    offhandStack.decrement(1);
+                            itemUsageContext.getBlockPos(),
+                            Items.PORKCHOP,
+                            MobSummoningSummonableConfig.summonXPCost("summoned_pig"),
+                            MobSummoningSummonableConfig.summonItemAmountCost("summoned_pig"));
                 }
-                else if (offhandStack.getItem() == Items.RABBIT_FOOT && MobSummoningSummonableConfig.isSummonable(
-                        "summoned_rabbit")){
+                else if (MobSummoningSummonableConfig.isSummonable("summoned_rabbit")){
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_RABBIT_ENTITY.create(world),
                             itemUsageContextPlayer,
-                            itemUsageContext.getBlockPos(), 5);
-                    offhandStack.decrement(1);
+                            itemUsageContext.getBlockPos(),
+                            Items.RABBIT_FOOT,
+                            MobSummoningSummonableConfig.summonXPCost("summoned_rabbit"),
+                            MobSummoningSummonableConfig.summonItemAmountCost("summoned_rabbit"));
                 }
-                else if (offhandStack.getItem() == Items.MUTTON && MobSummoningSummonableConfig.isSummonable(
-                        "summoned_sheep")) {
+                else if (MobSummoningSummonableConfig.isSummonable("summoned_sheep")) {
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_SHEEP_ENTITY.create(world),
                             itemUsageContextPlayer,
-                            itemUsageContext.getBlockPos(), 5);
-                    offhandStack.decrement(1);
+                            itemUsageContext.getBlockPos(),
+                            Items.MUTTON,
+                            MobSummoningSummonableConfig.summonXPCost("summoned_sheep"),
+                            MobSummoningSummonableConfig.summonItemAmountCost("summoned_sheep"));
                 }
 
                 // Neutral Mob Summons
-                else if (offhandStack.getItem() == Items.LEAD && MobSummoningSummonableConfig.isSummonable(
-                        "summoned_llama")) {
+                else if (MobSummoningSummonableConfig.isSummonable("summoned_llama")) {
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_LLAMA_ENTITY.create(world),
                             itemUsageContextPlayer,
-                            itemUsageContext.getBlockPos(), 10);
-                    offhandStack.decrement(1);
+                            itemUsageContext.getBlockPos(),
+                            Items.LEAD,
+                            MobSummoningSummonableConfig.summonXPCost("summoned_llama"),
+                            MobSummoningSummonableConfig.summonItemAmountCost("summoned_llama"));
                 }
-                else if (offhandStack.getItem() == Items.COBWEB && MobSummoningSummonableConfig.isSummonable(
-                        "summoned_spider")) {
+                else if (MobSummoningSummonableConfig.isSummonable("summoned_spider")) {
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_SPIDER_ENTITY.create(world),
                             itemUsageContextPlayer,
-                            itemUsageContext.getBlockPos(), 10);
-                    offhandStack.decrement(1);
+                            itemUsageContext.getBlockPos(),
+                            Items.COBWEB,
+                            MobSummoningSummonableConfig.summonXPCost("summoned_spider"),
+                            MobSummoningSummonableConfig.summonItemAmountCost("summoned_spider"));
                 }
-                else if (offhandStack.getItem() == Items.BONE && MobSummoningSummonableConfig.isSummonable(
-                        "summoned_wolf")) {
+                else if (MobSummoningSummonableConfig.isSummonable("summoned_wolf")) {
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_WOLF_ENTITY.create(world),
                             itemUsageContextPlayer,
-                            itemUsageContext.getBlockPos(), 10);
-                    offhandStack.decrement(1);
+                            itemUsageContext.getBlockPos(),
+                            Items.BONE,
+                            MobSummoningSummonableConfig.summonXPCost("summoned_wolf"),
+                            MobSummoningSummonableConfig.summonItemAmountCost("summoned_wolf"));
                 }
 
                 // Hostile Mob Summons
-                else if (offhandStack.getItem() == Items.BLAZE_ROD && MobSummoningSummonableConfig.isSummonable(
-                        "summoned_blaze")) {
+                else if (MobSummoningSummonableConfig.isSummonable("summoned_blaze")) {
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_BLAZE_ENTITY.create(world),
                             itemUsageContextPlayer,
-                            itemUsageContext.getBlockPos(), 15);
-                    offhandStack.decrement(1);
+                            itemUsageContext.getBlockPos(),
+                            Items.BLAZE_ROD,
+                            MobSummoningSummonableConfig.summonXPCost("summoned_blaze"),
+                            MobSummoningSummonableConfig.summonItemAmountCost("summoned_blaze"));
                 }
-                else if (offhandStack.getItem() == Items.SKELETON_SKULL && MobSummoningSummonableConfig.isSummonable(
-                        "summoned_skeleton")) {
+                else if (MobSummoningSummonableConfig.isSummonable("summoned_skeleton")) {
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_SKELETON_ENTITY.create(world),
                             itemUsageContextPlayer,
-                            itemUsageContext.getBlockPos(), 15);
-                    offhandStack.decrement(1);
+                            itemUsageContext.getBlockPos(),
+                            Items.SKELETON_SKULL,
+                            MobSummoningSummonableConfig.summonXPCost("summoned_skeleton"),
+                            MobSummoningSummonableConfig.summonItemAmountCost("summoned_skeleton"));
                 }
-                else if (offhandStack.getItem() == Items.WITHER_SKELETON_SKULL && MobSummoningSummonableConfig.isSummonable(
-                        "summoned_wither_skeleton")) {
+                else if (MobSummoningSummonableConfig.isSummonable("summoned_wither_skeleton")) {
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_WITHER_SKELETON_ENTITY.create(world),
                             itemUsageContextPlayer,
-                            itemUsageContext.getBlockPos(), 15);
-                    offhandStack.decrement(1);
+                            itemUsageContext.getBlockPos(),
+                            Items.WITHER_SKELETON_SKULL,
+                            MobSummoningSummonableConfig.summonXPCost("summoned_wither_skeleton"),
+                            MobSummoningSummonableConfig.summonItemAmountCost("summoned_wither_skeleton"));
                 }
-                else if (offhandStack.getItem() == Items.ROTTEN_FLESH && MobSummoningSummonableConfig.isSummonable(
-                        "summoned_husk") && MobSummoningSummonableConfig.isSummonable(
-                        "summoned_zombie")) {
+                else if (MobSummoningSummonableConfig.isSummonable("summoned_husk")
+                        && MobSummoningSummonableConfig.isSummonable("summoned_zombie")) {
                     if (itemUsageContextPlayer.getEntityWorld().getBiome(itemUsageContext.getBlockPos()).getCategory() == Biome.Category.DESERT) {
                         SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_HUSK_ENTITY.create(world),
                                 itemUsageContextPlayer,
-                                itemUsageContext.getBlockPos(), 15);
-                        offhandStack.decrement(1);
+                                itemUsageContext.getBlockPos(),
+                                Items.ROTTEN_FLESH,
+                                MobSummoningSummonableConfig.summonXPCost("summoned_husk"),
+                                MobSummoningSummonableConfig.summonItemAmountCost("summoned_husk"));
                     } else {
                         SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_ZOMBIE_ENTITY.create(world),
                                 itemUsageContextPlayer,
-                                itemUsageContext.getBlockPos(), 15);
-                        offhandStack.decrement(1);
+                                itemUsageContext.getBlockPos(),
+                                Items.ROTTEN_FLESH,
+                                MobSummoningSummonableConfig.summonXPCost("summoned_zombie"),
+                                MobSummoningSummonableConfig.summonItemAmountCost("summoned_zombie"));
                     }
                 }
 
                 // Uniquely Powerful Mob Summons
-                else if (offhandStack.getItem() == Items.ENDER_EYE && MobSummoningSummonableConfig.isSummonable(
-                        "summoned_enderman")) {
+                else if (MobSummoningSummonableConfig.isSummonable("summoned_enderman")) {
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_ENDERMAN_ENTITY.create(world),
                             itemUsageContextPlayer,
-                            itemUsageContext.getBlockPos(), 20);
-                    offhandStack.decrement(1);
+                            itemUsageContext.getBlockPos(),
+                            Items.ENDER_EYE,
+                            20,
+                            1);
                 }
-                else if (offhandStack.getItem() == Items.IRON_BLOCK && MobSummoningSummonableConfig.isSummonable(
-                        "summoned_iron_golem")) {
+                else if (MobSummoningSummonableConfig.isSummonable("summoned_iron_golem")) {
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_IRON_GOLEM_ENTITY.create(world),
                             itemUsageContextPlayer,
-                            itemUsageContext.getBlockPos(), 20);
-                    offhandStack.decrement(1);
+                            itemUsageContext.getBlockPos(),
+                            Items.IRON_BLOCK,
+                            20,
+                            1);
                 }
-                else if (offhandStack.getItem() == Items.GHAST_TEAR && MobSummoningSummonableConfig.isSummonable(
-                        "summoned_ghast")) {
+                else if (MobSummoningSummonableConfig.isSummonable("summoned_ghast")) {
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_GHAST_ENTITY.create(world),
                             itemUsageContextPlayer,
-                            itemUsageContext.getBlockPos(), 20);
-                    offhandStack.decrement(1);
+                            itemUsageContext.getBlockPos(),
+                            Items.GHAST_TEAR,
+                            20,
+                            1);
                 }
-                else if (offhandStack.getItem() == ItemsInit.RAVAGER_HORN && MobSummoningSummonableConfig.isSummonable(
-                        "summoned_ravager")) {
+                else if (MobSummoningSummonableConfig.isSummonable("summoned_ravager")) {
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_RAVAGER_ENTITY.create(world),
                             itemUsageContextPlayer,
-                            itemUsageContext.getBlockPos(), 20);
-                    offhandStack.decrement(1);
+                            itemUsageContext.getBlockPos(),
+                            ItemsInit.RAVAGER_HORN,
+                            20,
+                            1);
                 }
 
                 if (!itemUsageContextPlayer.isCreative()){
