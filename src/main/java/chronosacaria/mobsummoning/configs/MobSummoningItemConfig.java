@@ -9,23 +9,31 @@ import java.util.Map;
 
 public class MobSummoningItemConfig {
     private static final HashMap<String, Integer> ITEM_COOLDOWN = new HashMap<>();
+    private static final HashMap<String, Integer> ITEM_DURABILITY = new HashMap<>();
     private static final HashMap<String, Float> ITEM_DROP = new HashMap<>();
 
     public static int getItemCooldown(String itemName){
         return ITEM_COOLDOWN.getOrDefault(itemName, 0);
     }
-
+    public static int getItemDurability(String itemName){
+        return ITEM_DURABILITY.getOrDefault(itemName, 0);
+    }
     public static float getItemDrop(String itemName){
         return ITEM_DROP.getOrDefault(itemName, 0.0F);
     }
 
     public static void initAll(){
         initItemCooldowns();
+        initItemDurabilities();
         initItemLoottableDrops();
     }
 
     public static void initItemCooldowns(){
         ITEM_COOLDOWN.put("summoning_staff", 1200);
+    }
+
+    public static void initItemDurabilities(){
+        ITEM_DURABILITY.put("summoning_staff", 128);
     }
 
     public static void initItemLoottableDrops(){
@@ -50,6 +58,21 @@ public class MobSummoningItemConfig {
 
         config = new StringBuilder("{\n");
         i = 0;
+        for (String entity : ITEM_DURABILITY.keySet()) {
+            config.append(" \"").append(entity).append("\": ").append(ITEM_DURABILITY.get(entity));
+            ++i;
+            if (i < ITEM_DURABILITY.size()) {
+                config.append(",");
+            }
+            config.append("\n");
+        }
+        config.append("}");
+        MobSummoningBaseConfig.createFile("config/mob_summoning/items/item_durabilities_config.json5",
+                config.toString(),
+                overwrite);
+
+        config = new StringBuilder("{\n");
+        i = 0;
         for (String entity : ITEM_DROP.keySet()) {
             config.append(" \"").append(entity).append("\": ").append(ITEM_DROP.get(entity));
             ++i;
@@ -69,6 +92,11 @@ public class MobSummoningItemConfig {
         jsonObject = MobSummoningBaseConfig.getJsonObject(MobSummoningBaseConfig.readFile(new File("config/mob_summoning/items/item_cooldowns_config.json5")));
         for (Map.Entry<String, JsonElement> entry : jsonObject.entrySet()) {
             ITEM_COOLDOWN.put(entry.getKey(), entry.getValue().getAsInt());
+        }
+
+        jsonObject = MobSummoningBaseConfig.getJsonObject(MobSummoningBaseConfig.readFile(new File("config/mob_summoning/items/item_durabilities_config.json5")));
+        for (Map.Entry<String, JsonElement> entry : jsonObject.entrySet()) {
+            ITEM_DURABILITY.put(entry.getKey(), entry.getValue().getAsInt());
         }
 
         jsonObject = MobSummoningBaseConfig.getJsonObject(MobSummoningBaseConfig.readFile(new File("config/mob_summoning/items/item_drops_config.json5")));

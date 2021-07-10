@@ -23,7 +23,7 @@ public class SummoningStaffItem extends Item {
 
 
     public SummoningStaffItem(Settings settings, String id) {
-        super(settings.maxCount(1).maxDamage(64));
+        super(settings.maxCount(1).maxDamage(MobSummoningItemConfig.getItemDurability("summoning_staff")));
         Registry.register(Registry.ITEM, new Identifier(MobSummoning.MOD_ID, id), this);
     }
 
@@ -188,32 +188,32 @@ public class SummoningStaffItem extends Item {
                             itemUsageContextPlayer,
                             itemUsageContext.getBlockPos(),
                             Items.ENDER_EYE,
-                            20,
-                            1);
+                            MobSummoningSummonableConfig.summonXPCost("summoned_enderman"),
+                            MobSummoningSummonableConfig.summonItemAmountCost("summoned_enderman"));
                 }
                 else if (MobSummoningSummonableConfig.isSummonable("summoned_iron_golem")) {
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_IRON_GOLEM_ENTITY.create(world),
                             itemUsageContextPlayer,
                             itemUsageContext.getBlockPos(),
                             Items.IRON_BLOCK,
-                            20,
-                            1);
+                            MobSummoningSummonableConfig.summonXPCost("summoned_iron_golem"),
+                            MobSummoningSummonableConfig.summonItemAmountCost("summoned_iron_golem"));
                 }
                 else if (MobSummoningSummonableConfig.isSummonable("summoned_ghast")) {
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_GHAST_ENTITY.create(world),
                             itemUsageContextPlayer,
                             itemUsageContext.getBlockPos(),
                             Items.GHAST_TEAR,
-                            20,
-                            1);
+                            MobSummoningSummonableConfig.summonXPCost("summoned_ghast"),
+                            MobSummoningSummonableConfig.summonItemAmountCost("summoned_ghast"));
                 }
                 else if (MobSummoningSummonableConfig.isSummonable("summoned_ravager")) {
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_RAVAGER_ENTITY.create(world),
                             itemUsageContextPlayer,
                             itemUsageContext.getBlockPos(),
                             ItemsInit.RAVAGER_HORN,
-                            20,
-                            1);
+                            MobSummoningSummonableConfig.summonXPCost("summoned_ravager"),
+                            MobSummoningSummonableConfig.summonItemAmountCost("summoned_ravager"));
                 }
 
                 if (!itemUsageContextPlayer.isCreative()){
