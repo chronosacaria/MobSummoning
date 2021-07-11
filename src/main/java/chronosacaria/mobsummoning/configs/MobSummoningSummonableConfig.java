@@ -41,6 +41,7 @@ public class MobSummoningSummonableConfig {
         SUMMONABLE.put("summoned_cat", true);
         SUMMONABLE.put("summoned_chicken", true);
         SUMMONABLE.put("summoned_cow", true);
+        SUMMONABLE.put("summoned_creeper", true);
         SUMMONABLE.put("summoned_enderman", true);
         SUMMONABLE.put("summoned_fox", true);
         SUMMONABLE.put("summoned_ghast", true);
@@ -64,6 +65,7 @@ public class MobSummoningSummonableConfig {
         SUMMON_XP_COST.put("summoned_cat", 5);
         SUMMON_XP_COST.put("summoned_chicken", 5);
         SUMMON_XP_COST.put("summoned_cow", 5);
+        SUMMON_XP_COST.put("summoned_creeper", 7);
         SUMMON_XP_COST.put("summoned_enderman", 20);
         SUMMON_XP_COST.put("summoned_fox", 5);
         SUMMON_XP_COST.put("summoned_ghast", 20);
@@ -87,6 +89,7 @@ public class MobSummoningSummonableConfig {
         SUMMON_ITEM_AMOUNT_COST.put("summoned_cat", 1);
         SUMMON_ITEM_AMOUNT_COST.put("summoned_chicken", 1);
         SUMMON_ITEM_AMOUNT_COST.put("summoned_cow", 1);
+        SUMMON_ITEM_AMOUNT_COST.put("summoned_creeper", 1);
         SUMMON_ITEM_AMOUNT_COST.put("summoned_enderman", 1);
         SUMMON_ITEM_AMOUNT_COST.put("summoned_fox", 1);
         SUMMON_ITEM_AMOUNT_COST.put("summoned_ghast", 1);
@@ -116,7 +119,7 @@ public class MobSummoningSummonableConfig {
             config.append("\n");
         }
         config.append("}");
-        MobSummoningBaseConfig.createFile("config/mob_summoning/summons/summonable_config.json5", config.toString(),
+        MobSummoningBaseConfig.createFile("config/mob_summoning/summons/is_summonable_config.json5", config.toString(),
                 overwrite);
 
         config = new StringBuilder("{\n");
@@ -152,7 +155,7 @@ public class MobSummoningSummonableConfig {
 
     public static void loadConfig(){
         JsonObject jsonObject;
-        jsonObject = MobSummoningBaseConfig.getJsonObject(MobSummoningBaseConfig.readFile(new File("config/mob_summoning/summons/summonable_config.json5")));
+        jsonObject = MobSummoningBaseConfig.getJsonObject(MobSummoningBaseConfig.readFile(new File("config/mob_summoning/summons/is_summonable_config.json5")));
         for (Map.Entry<String, JsonElement> entry : jsonObject.entrySet()) {
             SUMMONABLE.put(entry.getKey(), entry.getValue().getAsBoolean());
         }

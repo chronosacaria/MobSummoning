@@ -61,6 +61,7 @@ public class MobSummoningStatsConfig {
         MAX_HEALTH.put("summoned_cat", 10.0D);
         MAX_HEALTH.put("summoned_chicken", 4.0D);
         MAX_HEALTH.put("summoned_cow", 10.0D);
+        MAX_HEALTH.put("summoned_creeper", 20.0D);
         MAX_HEALTH.put("summoned_enderman", 40.0D);
         MAX_HEALTH.put("summoned_fox", 10.0D);
         MAX_HEALTH.put("summoned_ghast", 10.0D);
@@ -84,6 +85,7 @@ public class MobSummoningStatsConfig {
         MOVEMENT_SPEED.put("summoned_cat", 0.30D);
         MOVEMENT_SPEED.put("summoned_chicken", 0.25D);
         MOVEMENT_SPEED.put("summoned_cow", 0.25D);
+        MOVEMENT_SPEED.put("summoned_creeper", 0.25D);
         MOVEMENT_SPEED.put("summoned_enderman", 0.30D);
         MOVEMENT_SPEED.put("summoned_fox", 0.30D);
         MOVEMENT_SPEED.put("summoned_ghast", 0.30D);
@@ -107,6 +109,7 @@ public class MobSummoningStatsConfig {
         ATTACK_DAMAGE.put("summoned_cat", 3.0D);
         ATTACK_DAMAGE.put("summoned_chicken", 3.0D);
         ATTACK_DAMAGE.put("summoned_cow", 4.0D);
+        ATTACK_DAMAGE.put("summoned_creeper", 4.0D);
         ATTACK_DAMAGE.put("summoned_enderman", 7.0D);
         ATTACK_DAMAGE.put("summoned_fox", 2.0D);
         ATTACK_DAMAGE.put("summoned_ghast", 6.0D);
@@ -130,6 +133,7 @@ public class MobSummoningStatsConfig {
         GENERIC_ARMOR.put("summoned_cat", 0.0D);
         GENERIC_ARMOR.put("summoned_chicken", 0.0D);
         GENERIC_ARMOR.put("summoned_cow", 0.0D);
+        GENERIC_ARMOR.put("summoned_creeper", 0.0D);
         GENERIC_ARMOR.put("summoned_enderman", 0.0D);
         GENERIC_ARMOR.put("summoned_fox", 0.0D);
         GENERIC_ARMOR.put("summoned_ghast", 0.0D);
@@ -153,6 +157,7 @@ public class MobSummoningStatsConfig {
         FOLLOW_RANGE.put("summoned_cat", 64.0D);
         FOLLOW_RANGE.put("summoned_chicken", 64.0D);
         FOLLOW_RANGE.put("summoned_cow", 64.0D);
+        FOLLOW_RANGE.put("summoned_creeper", 64.0D);
         FOLLOW_RANGE.put("summoned_enderman", 64.0D);
         FOLLOW_RANGE.put("summoned_fox", 64.0D);
         FOLLOW_RANGE.put("summoned_ghast", 64.0D);
@@ -176,6 +181,7 @@ public class MobSummoningStatsConfig {
         ATTACK_KNOCKBACK.put("summoned_cat", 0.0D);
         ATTACK_KNOCKBACK.put("summoned_chicken", 0.0D);
         ATTACK_KNOCKBACK.put("summoned_cow", 0.0D);
+        ATTACK_KNOCKBACK.put("summoned_creeper", 0.0D);
         ATTACK_KNOCKBACK.put("summoned_enderman", 0.0D);
         ATTACK_KNOCKBACK.put("summoned_fox", 0.0D);
         ATTACK_KNOCKBACK.put("summoned_ghast", 0.0D);
@@ -199,6 +205,7 @@ public class MobSummoningStatsConfig {
         KNOCKBACK_RESISTANCE.put("summoned_cat", 0.0D);
         KNOCKBACK_RESISTANCE.put("summoned_chicken", 0.0D);
         KNOCKBACK_RESISTANCE.put("summoned_cow", 0.0D);
+        KNOCKBACK_RESISTANCE.put("summoned_creeper", 0.0D);
         KNOCKBACK_RESISTANCE.put("summoned_enderman", 0.0D);
         KNOCKBACK_RESISTANCE.put("summoned_fox", 0.0D);
         KNOCKBACK_RESISTANCE.put("summoned_ghast", 0.0D);

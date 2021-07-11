@@ -36,6 +36,7 @@ public class SummonedEntityRegistry {
     public static final EntityType<SummonedWolfEntity> SUMMONED_WOLF_ENTITY = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SummonedWolfEntity::new).dimensions(EntityDimensions.fixed(1, 2)).build();
 
     public static final EntityType<SummonedBlazeEntity> SUMMONED_BLAZE_ENTITY = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SummonedBlazeEntity::new).dimensions(EntityDimensions.fixed(1, 2)).build();
+    public static final EntityType<SummonedCreeperEntity> SUMMONED_CREEPER_ENTITY = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SummonedCreeperEntity::new).dimensions(EntityDimensions.fixed(1, 2)).build();
     public static final EntityType<SummonedGhastEntity> SUMMONED_GHAST_ENTITY = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SummonedGhastEntity::new).dimensions(EntityDimensions.fixed(1, 2)).build();
     public static final EntityType<SummonedHuskEntity> SUMMONED_HUSK_ENTITY = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SummonedHuskEntity::new).dimensions(EntityDimensions.fixed(1, 2)).build();
     public static final EntityType<SummonedRavagerEntity> SUMMONED_RAVAGER_ENTITY = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SummonedRavagerEntity::new).dimensions(EntityDimensions.fixed(1, 2)).build();
@@ -62,6 +63,7 @@ public class SummonedEntityRegistry {
         registerEntity("summoned_wolf", SummonedWolfEntity.createWolfAttributes(), SUMMONED_WOLF_ENTITY);
 
         registerEntity("summoned_blaze", SummonedBlazeEntity.createBlazeAttributes(), SUMMONED_BLAZE_ENTITY);
+        registerEntity("summoned_creeper", SummonedCreeperEntity.createCreeperAttributes(), SUMMONED_CREEPER_ENTITY);
         registerEntity("summoned_ghast", SummonedGhastEntity.createGhastAttributes(), SUMMONED_GHAST_ENTITY);
         registerEntity("summoned_husk", SummonedHuskEntity.createZombieAttributes(), SUMMONED_HUSK_ENTITY);
         registerEntity("summoned_ravager", SummonedRavagerEntity.createRavagerAttributes(), SUMMONED_RAVAGER_ENTITY);

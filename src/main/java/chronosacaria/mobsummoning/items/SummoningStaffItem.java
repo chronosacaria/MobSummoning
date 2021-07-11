@@ -21,7 +21,6 @@ import net.minecraft.world.biome.Biome;
 
 public class SummoningStaffItem extends Item {
 
-
     public SummoningStaffItem(Settings settings, String id) {
         super(settings.maxCount(1).maxDamage(MobSummoningItemConfig.getItemDurability("summoning_staff")));
         Registry.register(Registry.ITEM, new Identifier(MobSummoning.MOD_ID, id), this);
@@ -55,7 +54,7 @@ public class SummoningStaffItem extends Item {
                             MobSummoningSummonableConfig.summonXPCost("summoned_bat"),
                             MobSummoningSummonableConfig.summonItemAmountCost("summoned_bat"));
                 }
-                else if (MobSummoningSummonableConfig.isSummonable("summoned_cat")){
+                if (MobSummoningSummonableConfig.isSummonable("summoned_cat")){
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_CAT_ENTITY.create(world),
                             itemUsageContextPlayer,
                             itemUsageContext.getBlockPos(),
@@ -63,7 +62,7 @@ public class SummoningStaffItem extends Item {
                             MobSummoningSummonableConfig.summonXPCost("summoned_cat"),
                             MobSummoningSummonableConfig.summonItemAmountCost("summoned_cat"));
                 }
-                else if (MobSummoningSummonableConfig.isSummonable("summoned_chicken")){
+                if (MobSummoningSummonableConfig.isSummonable("summoned_chicken")){
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_CHICKEN_ENTITY.create(world),
                             itemUsageContextPlayer,
                             itemUsageContext.getBlockPos(),
@@ -71,7 +70,7 @@ public class SummoningStaffItem extends Item {
                             MobSummoningSummonableConfig.summonXPCost("summoned_chicken"),
                             MobSummoningSummonableConfig.summonItemAmountCost("summoned_chicken"));
                 }
-                else if (MobSummoningSummonableConfig.isSummonable("summoned_cow")){
+                if (MobSummoningSummonableConfig.isSummonable("summoned_cow")){
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_COW_ENTITY.create(world),
                             itemUsageContextPlayer,
                             itemUsageContext.getBlockPos(),
@@ -79,7 +78,7 @@ public class SummoningStaffItem extends Item {
                             MobSummoningSummonableConfig.summonXPCost("summoned_cow"),
                             MobSummoningSummonableConfig.summonItemAmountCost("summoned_cow"));
                 }
-                else if (MobSummoningSummonableConfig.isSummonable("summoned_fox")){
+                if (MobSummoningSummonableConfig.isSummonable("summoned_fox")){
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_FOX_ENTITY.create(world),
                             itemUsageContextPlayer,
                             itemUsageContext.getBlockPos(),
@@ -87,7 +86,7 @@ public class SummoningStaffItem extends Item {
                             MobSummoningSummonableConfig.summonXPCost("summoned_fox"),
                             MobSummoningSummonableConfig.summonItemAmountCost("summoned_fox"));
                 }
-                else if (MobSummoningSummonableConfig.isSummonable("summoned_pig")){
+                if (MobSummoningSummonableConfig.isSummonable("summoned_pig")){
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_PIG_ENTITY.create(world),
                             itemUsageContextPlayer,
                             itemUsageContext.getBlockPos(),
@@ -95,7 +94,7 @@ public class SummoningStaffItem extends Item {
                             MobSummoningSummonableConfig.summonXPCost("summoned_pig"),
                             MobSummoningSummonableConfig.summonItemAmountCost("summoned_pig"));
                 }
-                else if (MobSummoningSummonableConfig.isSummonable("summoned_rabbit")){
+                if (MobSummoningSummonableConfig.isSummonable("summoned_rabbit")){
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_RABBIT_ENTITY.create(world),
                             itemUsageContextPlayer,
                             itemUsageContext.getBlockPos(),
@@ -103,7 +102,7 @@ public class SummoningStaffItem extends Item {
                             MobSummoningSummonableConfig.summonXPCost("summoned_rabbit"),
                             MobSummoningSummonableConfig.summonItemAmountCost("summoned_rabbit"));
                 }
-                else if (MobSummoningSummonableConfig.isSummonable("summoned_sheep")) {
+                if (MobSummoningSummonableConfig.isSummonable("summoned_sheep")) {
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_SHEEP_ENTITY.create(world),
                             itemUsageContextPlayer,
                             itemUsageContext.getBlockPos(),
@@ -113,7 +112,7 @@ public class SummoningStaffItem extends Item {
                 }
 
                 // Neutral Mob Summons
-                else if (MobSummoningSummonableConfig.isSummonable("summoned_llama")) {
+                if (MobSummoningSummonableConfig.isSummonable("summoned_llama")) {
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_LLAMA_ENTITY.create(world),
                             itemUsageContextPlayer,
                             itemUsageContext.getBlockPos(),
@@ -121,7 +120,7 @@ public class SummoningStaffItem extends Item {
                             MobSummoningSummonableConfig.summonXPCost("summoned_llama"),
                             MobSummoningSummonableConfig.summonItemAmountCost("summoned_llama"));
                 }
-                else if (MobSummoningSummonableConfig.isSummonable("summoned_spider")) {
+                if (MobSummoningSummonableConfig.isSummonable("summoned_spider")) {
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_SPIDER_ENTITY.create(world),
                             itemUsageContextPlayer,
                             itemUsageContext.getBlockPos(),
@@ -129,7 +128,7 @@ public class SummoningStaffItem extends Item {
                             MobSummoningSummonableConfig.summonXPCost("summoned_spider"),
                             MobSummoningSummonableConfig.summonItemAmountCost("summoned_spider"));
                 }
-                else if (MobSummoningSummonableConfig.isSummonable("summoned_wolf")) {
+                if (MobSummoningSummonableConfig.isSummonable("summoned_wolf")) {
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_WOLF_ENTITY.create(world),
                             itemUsageContextPlayer,
                             itemUsageContext.getBlockPos(),
@@ -139,7 +138,7 @@ public class SummoningStaffItem extends Item {
                 }
 
                 // Hostile Mob Summons
-                else if (MobSummoningSummonableConfig.isSummonable("summoned_blaze")) {
+                if (MobSummoningSummonableConfig.isSummonable("summoned_blaze")) {
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_BLAZE_ENTITY.create(world),
                             itemUsageContextPlayer,
                             itemUsageContext.getBlockPos(),
@@ -147,7 +146,15 @@ public class SummoningStaffItem extends Item {
                             MobSummoningSummonableConfig.summonXPCost("summoned_blaze"),
                             MobSummoningSummonableConfig.summonItemAmountCost("summoned_blaze"));
                 }
-                else if (MobSummoningSummonableConfig.isSummonable("summoned_skeleton")) {
+                if (MobSummoningSummonableConfig.isSummonable("summoned_creeper")) {
+                    SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_CREEPER_ENTITY.create(world),
+                            itemUsageContextPlayer,
+                            itemUsageContext.getBlockPos(),
+                            Items.GUNPOWDER,
+                            MobSummoningSummonableConfig.summonXPCost("summoned_creeper"),
+                            MobSummoningSummonableConfig.summonItemAmountCost("summoned_creeper"));
+                }
+                if (MobSummoningSummonableConfig.isSummonable("summoned_skeleton")) {
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_SKELETON_ENTITY.create(world),
                             itemUsageContextPlayer,
                             itemUsageContext.getBlockPos(),
@@ -155,7 +162,7 @@ public class SummoningStaffItem extends Item {
                             MobSummoningSummonableConfig.summonXPCost("summoned_skeleton"),
                             MobSummoningSummonableConfig.summonItemAmountCost("summoned_skeleton"));
                 }
-                else if (MobSummoningSummonableConfig.isSummonable("summoned_wither_skeleton")) {
+                if (MobSummoningSummonableConfig.isSummonable("summoned_wither_skeleton")) {
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_WITHER_SKELETON_ENTITY.create(world),
                             itemUsageContextPlayer,
                             itemUsageContext.getBlockPos(),
@@ -163,7 +170,7 @@ public class SummoningStaffItem extends Item {
                             MobSummoningSummonableConfig.summonXPCost("summoned_wither_skeleton"),
                             MobSummoningSummonableConfig.summonItemAmountCost("summoned_wither_skeleton"));
                 }
-                else if (MobSummoningSummonableConfig.isSummonable("summoned_husk")
+                if (MobSummoningSummonableConfig.isSummonable("summoned_husk")
                         && MobSummoningSummonableConfig.isSummonable("summoned_zombie")) {
                     if (itemUsageContextPlayer.getEntityWorld().getBiome(itemUsageContext.getBlockPos()).getCategory() == Biome.Category.DESERT) {
                         SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_HUSK_ENTITY.create(world),
@@ -183,15 +190,15 @@ public class SummoningStaffItem extends Item {
                 }
 
                 // Uniquely Powerful Mob Summons
-                else if (MobSummoningSummonableConfig.isSummonable("summoned_enderman")) {
+                if (MobSummoningSummonableConfig.isSummonable("summoned_enderman")) {
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_ENDERMAN_ENTITY.create(world),
                             itemUsageContextPlayer,
                             itemUsageContext.getBlockPos(),
-                            Items.ENDER_EYE,
+                            Items.ENDER_PEARL,
                             MobSummoningSummonableConfig.summonXPCost("summoned_enderman"),
                             MobSummoningSummonableConfig.summonItemAmountCost("summoned_enderman"));
                 }
-                else if (MobSummoningSummonableConfig.isSummonable("summoned_iron_golem")) {
+                if (MobSummoningSummonableConfig.isSummonable("summoned_iron_golem")) {
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_IRON_GOLEM_ENTITY.create(world),
                             itemUsageContextPlayer,
                             itemUsageContext.getBlockPos(),
@@ -199,7 +206,7 @@ public class SummoningStaffItem extends Item {
                             MobSummoningSummonableConfig.summonXPCost("summoned_iron_golem"),
                             MobSummoningSummonableConfig.summonItemAmountCost("summoned_iron_golem"));
                 }
-                else if (MobSummoningSummonableConfig.isSummonable("summoned_ghast")) {
+                if (MobSummoningSummonableConfig.isSummonable("summoned_ghast")) {
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_GHAST_ENTITY.create(world),
                             itemUsageContextPlayer,
                             itemUsageContext.getBlockPos(),
@@ -207,7 +214,7 @@ public class SummoningStaffItem extends Item {
                             MobSummoningSummonableConfig.summonXPCost("summoned_ghast"),
                             MobSummoningSummonableConfig.summonItemAmountCost("summoned_ghast"));
                 }
-                else if (MobSummoningSummonableConfig.isSummonable("summoned_ravager")) {
+                if (MobSummoningSummonableConfig.isSummonable("summoned_ravager")) {
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_RAVAGER_ENTITY.create(world),
                             itemUsageContextPlayer,
                             itemUsageContext.getBlockPos(),
@@ -221,8 +228,8 @@ public class SummoningStaffItem extends Item {
                             (entity) -> entity.sendToolBreakStatus(itemUsageContext.getHand()));
                 }
 
-                itemUsageContextPlayer.getItemCooldownManager().set(this,
-                        MobSummoningItemConfig.getItemCooldown("summoning_staff"));
+                //itemUsageContextPlayer.getItemCooldownManager().set(this,
+                //        MobSummoningItemConfig.getItemCooldown("summoning_staff"));
                 // cooldown
             }
         }

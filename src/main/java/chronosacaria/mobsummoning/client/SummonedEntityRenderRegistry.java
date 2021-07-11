@@ -1,6 +1,5 @@
 package chronosacaria.mobsummoning.client;
 
-import chronosacaria.mobsummoning.entities.SummonedSkeletonEntity;
 import chronosacaria.mobsummoning.entities.renderers.*;
 import chronosacaria.mobsummoning.init.SummonedEntityRegistry;
 import net.fabricmc.api.EnvType;
@@ -28,6 +27,7 @@ public class SummonedEntityRenderRegistry {
         registerRenderMob(SummonedEntityRegistry.SUMMONED_WOLF_ENTITY, SummonedWolfRenderer.class);
 
         registerRenderMob(SummonedEntityRegistry.SUMMONED_BLAZE_ENTITY, SummonedBlazeRenderer.class);
+        registerRenderMob(SummonedEntityRegistry.SUMMONED_CREEPER_ENTITY, SummonedCreeperRenderer.class);
         registerRenderMob(SummonedEntityRegistry.SUMMONED_GHAST_ENTITY, SummonedGhastRenderer.class);
         registerRenderMob(SummonedEntityRegistry.SUMMONED_HUSK_ENTITY, SummonedHuskRenderer.class);
         registerRenderMob(SummonedEntityRegistry.SUMMONED_RAVAGER_ENTITY, SummonedRavagerRenderer.class);
