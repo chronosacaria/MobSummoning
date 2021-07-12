@@ -11,7 +11,7 @@ import net.minecraft.entity.passive.FoxEntity;
 import net.minecraft.util.math.MathHelper;
 
 @Environment(EnvType.CLIENT)
-public class SummonedFoxModel<T extends SummonedFoxEntity> extends AnimalModel<T> {
+public class SummonedFoxEntityModel<T extends SummonedFoxEntity> extends AnimalModel<T> {
     public final ModelPart head;
     private final ModelPart rightEar;
     private final ModelPart leftEar;
@@ -23,7 +23,7 @@ public class SummonedFoxModel<T extends SummonedFoxEntity> extends AnimalModel<T
     private final ModelPart leftFrontLeg;
     private final ModelPart tail;
 
-    public SummonedFoxModel() {
+    public SummonedFoxEntityModel() {
         super(true, 8.0F, 3.35F);
         this.textureWidth = 48;
         this.textureHeight = 32;

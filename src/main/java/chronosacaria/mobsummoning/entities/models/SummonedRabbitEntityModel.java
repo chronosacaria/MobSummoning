@@ -13,7 +13,7 @@ import net.minecraft.entity.passive.RabbitEntity;
 import net.minecraft.util.math.MathHelper;
 
 @Environment(EnvType.CLIENT)
-public class SummonedRabbitModel<T extends SummonedRabbitEntity> extends EntityModel<T> {
+public class SummonedRabbitEntityModel<T extends SummonedRabbitEntity> extends EntityModel<T> {
     private final ModelPart leftFoot = new ModelPart(this, 26, 24);
     private final ModelPart rightFoot;
     private final ModelPart leftBackLeg;
@@ -28,7 +28,7 @@ public class SummonedRabbitModel<T extends SummonedRabbitEntity> extends EntityM
     private final ModelPart nose;
     private float field_3531;
 
-    public SummonedRabbitModel() {
+    public SummonedRabbitEntityModel() {
         this.leftFoot.addCuboid(-1.0F, 5.5F, -3.7F, 2.0F, 1.0F, 7.0F);
         this.leftFoot.setPivot(3.0F, 17.5F, 3.7F);
         this.leftFoot.mirror = true;

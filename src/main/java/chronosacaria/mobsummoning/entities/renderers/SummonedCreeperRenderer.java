@@ -1,20 +1,21 @@
 package chronosacaria.mobsummoning.entities.renderers;
 
 import chronosacaria.mobsummoning.entities.SummonedCreeperEntity;
+import chronosacaria.mobsummoning.entities.models.SummonedCreeperEntityModel;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.MobEntityRenderer;
-import net.minecraft.client.render.entity.model.CreeperEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 
 @Environment(EnvType.CLIENT)
-public class SummonedCreeperRenderer extends MobEntityRenderer<SummonedCreeperEntity, CreeperEntityModel<SummonedCreeperEntity>> {
+public class SummonedCreeperRenderer extends MobEntityRenderer<SummonedCreeperEntity,
+        SummonedCreeperEntityModel<SummonedCreeperEntity>> {
 
     public SummonedCreeperRenderer(EntityRenderDispatcher renderDispatcher){
-        super(renderDispatcher, new CreeperEntityModel<>(), 0.5F);
+        super(renderDispatcher, new SummonedCreeperEntityModel<>(), 0.5F);
     }
 
     @Override

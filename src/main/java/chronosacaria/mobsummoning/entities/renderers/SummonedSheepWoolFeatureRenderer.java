@@ -2,7 +2,7 @@ package chronosacaria.mobsummoning.entities.renderers;
 
 import chronosacaria.mobsummoning.entities.SummonedSheepEntity;
 import chronosacaria.mobsummoning.entities.models.SummonedSheepWoolEntityModel;
-import chronosacaria.mobsummoning.entities.models.SummonedSheepModel;
+import chronosacaria.mobsummoning.entities.models.SummonedSheepEntityModel;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -14,12 +14,12 @@ import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
-public class SummonedSheepWoolFeatureRenderer extends FeatureRenderer<SummonedSheepEntity, SummonedSheepModel<SummonedSheepEntity>> {
+public class SummonedSheepWoolFeatureRenderer extends FeatureRenderer<SummonedSheepEntity, SummonedSheepEntityModel<SummonedSheepEntity>> {
     private static final Identifier SKIN = new Identifier("textures/entity/sheep/sheep_fur.png");
     private final SummonedSheepWoolEntityModel<SummonedSheepEntity> model = new SummonedSheepWoolEntityModel<>();
 
 
-    public SummonedSheepWoolFeatureRenderer(FeatureRendererContext<SummonedSheepEntity, SummonedSheepModel<SummonedSheepEntity>> featureRendererContext) {
+    public SummonedSheepWoolFeatureRenderer(FeatureRendererContext<SummonedSheepEntity, SummonedSheepEntityModel<SummonedSheepEntity>> featureRendererContext) {
         super(featureRendererContext);
     }
 

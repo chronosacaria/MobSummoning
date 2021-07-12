@@ -9,7 +9,7 @@ import net.minecraft.client.render.entity.model.CompositeEntityModel;
 import net.minecraft.util.math.MathHelper;
 
 @Environment(EnvType.CLIENT)
-public class SummonedRavagerModel extends CompositeEntityModel<SummonedRavagerEntity> {
+public class SummonedRavagerEntityModel extends CompositeEntityModel<SummonedRavagerEntity> {
     private final ModelPart head;
     private final ModelPart jaw;
     private final ModelPart torso;
@@ -19,7 +19,7 @@ public class SummonedRavagerModel extends CompositeEntityModel<SummonedRavagerEn
     private final ModelPart leftFrontLeg;
     private final ModelPart neck;
 
-    public SummonedRavagerModel() {
+    public SummonedRavagerEntityModel() {
         this.textureWidth = 128;
         this.textureHeight = 128;
         //int i = true;

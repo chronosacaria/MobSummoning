@@ -9,7 +9,7 @@ import net.minecraft.client.render.entity.model.CompositeEntityModel;
 import net.minecraft.util.math.MathHelper;
 
 @Environment(EnvType.CLIENT)
-public class SummonedBatModel extends CompositeEntityModel<SummonedBatEntity>{
+public class SummonedBatEntityModel extends CompositeEntityModel<SummonedBatEntity>{
     private final ModelPart head;
     private final ModelPart body;
     private final ModelPart rightWing;
@@ -17,7 +17,7 @@ public class SummonedBatModel extends CompositeEntityModel<SummonedBatEntity>{
     private final ModelPart rightWingTip;
     private final ModelPart leftWingTip;
 
-    public SummonedBatModel() {
+    public SummonedBatEntityModel() {
         this.textureWidth = 64;
         this.textureHeight = 64;
         this.head = new ModelPart(this, 0, 0);

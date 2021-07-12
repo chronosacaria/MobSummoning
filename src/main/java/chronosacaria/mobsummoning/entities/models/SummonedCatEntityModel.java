@@ -9,7 +9,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
 @Environment(EnvType.CLIENT)
-public class SummonedCatModel <T extends Entity> extends AnimalModel<T> {
+public class SummonedCatEntityModel<T extends Entity> extends AnimalModel<T> {
     protected final ModelPart leftBackLeg;
     protected final ModelPart rightBackLeg;
     protected final ModelPart leftFrontLeg;
@@ -20,7 +20,7 @@ public class SummonedCatModel <T extends Entity> extends AnimalModel<T> {
     protected final ModelPart torso;
     protected int animationState = 1;
 
-    public SummonedCatModel(float scale) {
+    public SummonedCatEntityModel(float scale) {
         super(true, 10.0F, 4.0F);
         this.head.addCuboid("main", -2.5F, -2.0F, -3.0F, 5, 4, 5, scale, 0, 0);
         this.head.addCuboid("nose", -1.5F, 0.0F, -4.0F, 3, 2, 2, scale, 0, 24);

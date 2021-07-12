@@ -14,10 +14,10 @@ import net.minecraft.entity.passive.SheepEntity;
 import net.minecraft.util.math.MathHelper;
 
 @Environment(EnvType.CLIENT)
-public class SummonedSheepModel<T extends SummonedSheepEntity> extends QuadrupedEntityModel<T> {
+public class SummonedSheepEntityModel<T extends SummonedSheepEntity> extends QuadrupedEntityModel<T> {
     private float headPitchModifier;
 
-    public SummonedSheepModel() {
+    public SummonedSheepEntityModel() {
         super(12, 0.0F, false, 8.0F, 4.0F, 2.0F, 2.0F, 24);
         this.head = new ModelPart(this, 0, 0);
         this.head.addCuboid(-3.0F, -4.0F, -6.0F, 6.0F, 6.0F, 8.0F, 0.0F);

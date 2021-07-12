@@ -9,7 +9,7 @@ import net.minecraft.client.render.entity.model.CompositeEntityModel;
 import net.minecraft.util.math.MathHelper;
 
 @Environment(EnvType.CLIENT)
-public class SummonedIronGolemModel<T extends SummonedIronGolemEntity> extends CompositeEntityModel<T> {
+public class SummonedIronGolemEntityModel<T extends SummonedIronGolemEntity> extends CompositeEntityModel<T> {
     private final ModelPart head;
     private final ModelPart torso;
     private final ModelPart rightArm;
@@ -17,7 +17,7 @@ public class SummonedIronGolemModel<T extends SummonedIronGolemEntity> extends C
     private final ModelPart rightLeg;
     private final ModelPart leftLeg;
 
-    public SummonedIronGolemModel() {
+    public SummonedIronGolemEntityModel() {
         this.head = (new ModelPart(this)).setTextureSize(128, 128);
         this.head.setPivot(0.0F, -7.0F, -2.0F);
         this.head.setTextureOffset(0, 0).addCuboid(-4.0F, -12.0F, -5.5F, 8.0F, 10.0F, 8.0F, 0.0F);

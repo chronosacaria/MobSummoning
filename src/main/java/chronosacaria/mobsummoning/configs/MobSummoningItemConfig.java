@@ -29,7 +29,7 @@ public class MobSummoningItemConfig {
     }
 
     public static void initItemCooldowns(){
-        ITEM_COOLDOWN.put("summoning_staff", 1200);
+        ITEM_COOLDOWN.put("summoning_staff", 200);
     }
 
     public static void initItemDurabilities(){

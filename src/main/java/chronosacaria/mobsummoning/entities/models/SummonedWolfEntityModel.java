@@ -9,7 +9,7 @@ import net.minecraft.client.render.entity.model.TintableAnimalModel;
 import net.minecraft.util.math.MathHelper;
 
 @Environment(EnvType.CLIENT)
-public class SummonedWolfModel<T extends SummonedWolfEntity> extends TintableAnimalModel<T> {
+public class SummonedWolfEntityModel<T extends SummonedWolfEntity> extends TintableAnimalModel<T> {
     private final ModelPart head;
     private final ModelPart field_20788;
     private final ModelPart torso;
@@ -21,7 +21,7 @@ public class SummonedWolfModel<T extends SummonedWolfEntity> extends TintableAni
     private final ModelPart field_20789;
     private final ModelPart neck;
 
-    public SummonedWolfModel() {
+    public SummonedWolfEntityModel() {
         float f = 0.0F;
         float g = 13.5F;
         this.head = new ModelPart(this, 0, 0);

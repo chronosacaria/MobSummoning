@@ -1,22 +1,19 @@
 package chronosacaria.mobsummoning.entities.renderers;
 
-import chronosacaria.mobsummoning.entities.SummonedEndermanEntity;
 import chronosacaria.mobsummoning.entities.SummonedRavagerEntity;
-import chronosacaria.mobsummoning.entities.models.SummonedRavagerModel;
+import chronosacaria.mobsummoning.entities.models.SummonedRavagerEntityModel;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.MobEntityRenderer;
-import net.minecraft.client.render.entity.model.EndermanEntityModel;
-import net.minecraft.client.render.entity.model.RavagerEntityModel;
 import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 public class SummonedRavagerRenderer extends MobEntityRenderer<SummonedRavagerEntity,
-        SummonedRavagerModel> {
+        SummonedRavagerEntityModel> {
 
     public SummonedRavagerRenderer(EntityRenderDispatcher renderDispatcher){
-        super(renderDispatcher, new SummonedRavagerModel(), 1);
+        super(renderDispatcher, new SummonedRavagerEntityModel(), 1);
     }
 
     @Override

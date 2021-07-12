@@ -14,7 +14,7 @@ import net.minecraft.entity.passive.AbstractDonkeyEntity;
 import net.minecraft.util.math.MathHelper;
 
 @Environment(EnvType.CLIENT)
-public class SummonedLlamaModel<T extends SummonedLlamaEntity> extends EntityModel<T> {
+public class SummonedLlamaEntityModel<T extends SummonedLlamaEntity> extends EntityModel<T> {
     private final ModelPart head;
     private final ModelPart torso;
     private final ModelPart rightBackLeg;
@@ -24,7 +24,7 @@ public class SummonedLlamaModel<T extends SummonedLlamaEntity> extends EntityMod
     private final ModelPart rightChest;
     private final ModelPart leftChest;
 
-    public SummonedLlamaModel(float scale) {
+    public SummonedLlamaEntityModel(float scale) {
         this.textureWidth = 128;
         this.textureHeight = 64;
         this.head = new ModelPart(this, 0, 0);
