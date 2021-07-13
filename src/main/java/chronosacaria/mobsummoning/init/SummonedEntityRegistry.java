@@ -25,6 +25,7 @@ public class SummonedEntityRegistry {
     public static final EntityType<SummonedChickenEntity> SUMMONED_CHICKEN_ENTITY = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SummonedChickenEntity::new).dimensions(EntityDimensions.fixed(1, 2)).build();
     public static final EntityType<SummonedCowEntity> SUMMONED_COW_ENTITY = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SummonedCowEntity::new).dimensions(EntityDimensions.fixed(1, 2)).build();
     public static final EntityType<SummonedFoxEntity> SUMMONED_FOX_ENTITY = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SummonedFoxEntity::new).dimensions(EntityDimensions.fixed(1, 2)).build();
+    public static final EntityType<SummonedHorseEntity> SUMMONED_HORSE_ENTITY = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SummonedHorseEntity::new).dimensions(EntityDimensions.fixed(1, 2)).build();
     public static final EntityType<SummonedPigEntity> SUMMONED_PIG_ENTITY = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SummonedPigEntity::new).dimensions(EntityDimensions.fixed(1, 2)).build();
     public static final EntityType<SummonedRabbitEntity> SUMMONED_RABBIT_ENTITY = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SummonedRabbitEntity::new).dimensions(EntityDimensions.fixed(1, 2)).build();
     public static final EntityType<SummonedSheepEntity> SUMMONED_SHEEP_ENTITY = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SummonedSheepEntity::new).dimensions(EntityDimensions.fixed(1, 2)).build();
@@ -52,6 +53,7 @@ public class SummonedEntityRegistry {
         registerEntity("summoned_chicken", SummonedChickenEntity.createChickenAttributes(), SUMMONED_CHICKEN_ENTITY);
         registerEntity("summoned_cow", SummonedCowEntity.createCowAttributes(), SUMMONED_COW_ENTITY);
         registerEntity("summoned_fox", SummonedFoxEntity.createFoxAttributes(), SUMMONED_FOX_ENTITY);
+        registerEntity("summoned_horse", SummonedHorseEntity.createHorseAttributes(), SUMMONED_HORSE_ENTITY);
         registerEntity("summoned_pig", SummonedPigEntity.createPigAttributes(), SUMMONED_PIG_ENTITY);
         registerEntity("summoned_rabbit", SummonedRabbitEntity.createRabbitAttributes(), SUMMONED_RABBIT_ENTITY);
         registerEntity("summoned_sheep", SummonedSheepEntity.createSheepAttributes(), SUMMONED_SHEEP_ENTITY);

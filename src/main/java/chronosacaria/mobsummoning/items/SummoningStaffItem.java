@@ -88,6 +88,14 @@ public class SummoningStaffItem extends Item {
                             summonXPCost("summoned_fox"),
                             summonItemAmountCost("summoned_fox"));
                 }
+                if (isSummonable("summoned_horse")){
+                    SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_HORSE_ENTITY.create(world),
+                            itemUsageContextPlayer,
+                            itemUsageContext.getBlockPos(),
+                            Items.LEATHER,
+                            summonXPCost("summoned_horse"),
+                            summonItemAmountCost("summoned_horse"));
+                }
                 if (isSummonable("summoned_pig")){
                     SummoningHelper.summonMob(SummonedEntityRegistry.SUMMONED_PIG_ENTITY.create(world),
                             itemUsageContextPlayer,

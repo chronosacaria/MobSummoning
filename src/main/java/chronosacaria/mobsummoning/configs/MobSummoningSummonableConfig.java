@@ -1,10 +1,7 @@
 package chronosacaria.mobsummoning.configs;
 
-import chronosacaria.mobsummoning.init.ItemsInit;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
 
 import java.io.File;
 import java.util.HashMap;
@@ -45,6 +42,7 @@ public class MobSummoningSummonableConfig {
         SUMMONABLE.put("summoned_enderman", true);
         SUMMONABLE.put("summoned_fox", true);
         SUMMONABLE.put("summoned_ghast", true);
+        SUMMONABLE.put("summoned_horse", true);
         SUMMONABLE.put("summoned_husk", true);
         SUMMONABLE.put("summoned_iron_golem", true);
         SUMMONABLE.put("summoned_llama", true);
@@ -69,6 +67,7 @@ public class MobSummoningSummonableConfig {
         SUMMON_XP_COST.put("summoned_enderman", 20);
         SUMMON_XP_COST.put("summoned_fox", 5);
         SUMMON_XP_COST.put("summoned_ghast", 20);
+        SUMMON_XP_COST.put("summoned_horse", 5);
         SUMMON_XP_COST.put("summoned_husk", 10);
         SUMMON_XP_COST.put("summoned_iron_golem", 20);
         SUMMON_XP_COST.put("summoned_llama", 7);
@@ -93,6 +92,7 @@ public class MobSummoningSummonableConfig {
         SUMMON_ITEM_AMOUNT_COST.put("summoned_enderman", 1);
         SUMMON_ITEM_AMOUNT_COST.put("summoned_fox", 1);
         SUMMON_ITEM_AMOUNT_COST.put("summoned_ghast", 1);
+        SUMMON_ITEM_AMOUNT_COST.put("summoned_horse", 1);
         SUMMON_ITEM_AMOUNT_COST.put("summoned_husk", 1);
         SUMMON_ITEM_AMOUNT_COST.put("summoned_iron_golem", 1);
         SUMMON_ITEM_AMOUNT_COST.put("summoned_llama", 1);

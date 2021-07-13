@@ -65,6 +65,7 @@ public class MobSummoningStatsConfig {
         MAX_HEALTH.put("summoned_enderman", 40.0D);
         MAX_HEALTH.put("summoned_fox", 10.0D);
         MAX_HEALTH.put("summoned_ghast", 10.0D);
+        MAX_HEALTH.put("summoned_horse", 53.0D);
         MAX_HEALTH.put("summoned_husk", 20.0D);
         MAX_HEALTH.put("summoned_iron_golem", 100.0D);
         MAX_HEALTH.put("summoned_llama", 10.0D);
@@ -89,6 +90,7 @@ public class MobSummoningStatsConfig {
         MOVEMENT_SPEED.put("summoned_enderman", 0.30D);
         MOVEMENT_SPEED.put("summoned_fox", 0.30D);
         MOVEMENT_SPEED.put("summoned_ghast", 0.30D);
+        MOVEMENT_SPEED.put("summoned_horse", 0.23D);
         MOVEMENT_SPEED.put("summoned_husk", 0.23D);
         MOVEMENT_SPEED.put("summoned_iron_golem", 0.25D);
         MOVEMENT_SPEED.put("summoned_llama", 0.20D);
@@ -113,6 +115,7 @@ public class MobSummoningStatsConfig {
         ATTACK_DAMAGE.put("summoned_enderman", 7.0D);
         ATTACK_DAMAGE.put("summoned_fox", 2.0D);
         ATTACK_DAMAGE.put("summoned_ghast", 6.0D);
+        ATTACK_DAMAGE.put("summoned_horse", 5.0D);
         ATTACK_DAMAGE.put("summoned_husk", 3.0D);
         ATTACK_DAMAGE.put("summoned_iron_golem", 15.0D);
         ATTACK_DAMAGE.put("summoned_llama", 5.0D);
@@ -137,6 +140,7 @@ public class MobSummoningStatsConfig {
         GENERIC_ARMOR.put("summoned_enderman", 0.0D);
         GENERIC_ARMOR.put("summoned_fox", 0.0D);
         GENERIC_ARMOR.put("summoned_ghast", 0.0D);
+        GENERIC_ARMOR.put("summoned_horse", 0.0D);
         GENERIC_ARMOR.put("summoned_husk", 2.0D);
         GENERIC_ARMOR.put("summoned_iron_golem", 0.0D);
         GENERIC_ARMOR.put("summoned_llama", 0.0D);
@@ -161,6 +165,7 @@ public class MobSummoningStatsConfig {
         FOLLOW_RANGE.put("summoned_enderman", 64.0D);
         FOLLOW_RANGE.put("summoned_fox", 64.0D);
         FOLLOW_RANGE.put("summoned_ghast", 64.0D);
+        FOLLOW_RANGE.put("summoned_horse", 64.0D);
         FOLLOW_RANGE.put("summoned_husk", 64.0D);
         FOLLOW_RANGE.put("summoned_iron_golem", 64.0D);
         FOLLOW_RANGE.put("summoned_llama", 64.0D);
@@ -185,6 +190,7 @@ public class MobSummoningStatsConfig {
         ATTACK_KNOCKBACK.put("summoned_enderman", 0.0D);
         ATTACK_KNOCKBACK.put("summoned_fox", 0.0D);
         ATTACK_KNOCKBACK.put("summoned_ghast", 0.0D);
+        ATTACK_KNOCKBACK.put("summoned_horse", 0.5D);
         ATTACK_KNOCKBACK.put("summoned_husk", 0.0D);
         ATTACK_KNOCKBACK.put("summoned_iron_golem", 1.0D);
         ATTACK_KNOCKBACK.put("summoned_llama", 0.0D);
@@ -209,6 +215,7 @@ public class MobSummoningStatsConfig {
         KNOCKBACK_RESISTANCE.put("summoned_enderman", 0.0D);
         KNOCKBACK_RESISTANCE.put("summoned_fox", 0.0D);
         KNOCKBACK_RESISTANCE.put("summoned_ghast", 0.0D);
+        KNOCKBACK_RESISTANCE.put("summoned_horse", 0.0D);
         KNOCKBACK_RESISTANCE.put("summoned_husk", 0.0D);
         KNOCKBACK_RESISTANCE.put("summoned_iron_golem", 1.0D);
         KNOCKBACK_RESISTANCE.put("summoned_llama", 0.0D);

@@ -16,6 +16,7 @@ public class SummonedEntityRenderRegistry {
         registerRenderMob(SummonedEntityRegistry.SUMMONED_CHICKEN_ENTITY, SummonedChickenRenderer.class);
         registerRenderMob(SummonedEntityRegistry.SUMMONED_COW_ENTITY, SummonedCowRenderer.class);
         registerRenderMob(SummonedEntityRegistry.SUMMONED_FOX_ENTITY, SummonedFoxRenderer.class);
+        registerRenderMob(SummonedEntityRegistry.SUMMONED_HORSE_ENTITY, SummonedHorseRenderer.class);
         registerRenderMob(SummonedEntityRegistry.SUMMONED_PIG_ENTITY, SummonedPigRenderer.class);
         registerRenderMob(SummonedEntityRegistry.SUMMONED_RABBIT_ENTITY, SummonedRabbitRenderer.class);
         registerRenderMob(SummonedEntityRegistry.SUMMONED_SHEEP_ENTITY, SummonedSheepRenderer.class);
